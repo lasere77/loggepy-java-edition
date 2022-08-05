@@ -1,0 +1,99 @@
+{
+  "litel": {
+   "generate": "para generar una contrasena presiona \"w\"",
+   "read": "para leer una contrasena presiona \"r\"",
+   "creata": "para crear una contrasena presiona \"a\"",
+   "exit": "para salir por favor presiona \"e\"",
+   "see": "para ver todas tus contrasenas presiona \"p\"",
+   "copy": "para copiar tu palabra presiona \"c\"",
+   "backup": "si su archivo ./passewords esta danado, recopile esta funcion con \"b\"",
+   "delete": "para borrar una contrasena presiona \"d\"",
+   "info": "para ver mas detalles presiona \"i\"",
+   "update": "para actualizar loggepy presiona \"u\""
+ },
+ "big":{
+    "b_generate": "para generar una contrasena presiona \"w\",loggepy generara una contrasena indescifrable para ti, solo le diste un nombre a tu contrasena para encontrarla mas tarde, ten cuidado de no poner espacios!!!!!",
+    "b_read": "para leer una contrasena presiona \"r, para leer una de tus contrasenas, solo presiona \"r\" e ingresa el nombre de tu contrasena, el loggepy te la dara. Cuidado con no poner espacios!!!!!",
+    "b_creata": "para crear una contrasena presiona \"a\", esta funcion te permitira guardar una contrasena en loggepy (por lo tanto tendras que especificar para loggepy el nombre de la contrasena y la contrasena en luis mismo)",
+    "b_exit": "para salir por favor presiona \"e\", esta funcion solo salio correctamente de loggepy se recomienda cerrarla de esta forma y no con la cruz de la ventana",
+    "b_see": "para ver todas tus contrasenas presiona \"p\", esta funcion es para ver todas estas contrasenas",
+    "b_copy": "para copiar tu palabra presiona \"c\", si presionas \"c\" ya no podras ingresar el nombre de tu contrasena y automaticamente se colocara en tu portapapeles y podras pegar con el atajo \"clrt + v\"",
+    "b_backup": "si su archivo ./passewords esta danado y lo ha corregido, llame a esta funcion (tenga cuidado, esto eliminara su archivo actual para colocar el archivo \"C:/Users/USERNAME/AppData/Roaming/loggepy_backup_passeword /passwords_back\"",
+    "b_delete": "para eliminar una contrasena presione \"d\", esta funcion eliminara una contrasena contenida en \"C:\\ProgramData\\passworld_loggepy\\passewords\" se le pedira que coloque la línea donde se encuentra la contrasena se localiza y se borrara",
+    "b_update": "para actualizar loggepy presione \"u\" loggepy buscara en github si hay una nueva actualizacion y si es así, \ndescargara la ultima actualizacion y reemplazara los archivos antiguos con los nuevos, es importante especificar que esto no eliminara ninguna palabra de los pases. \nTenga en cuenta que necesitara una conexion a Internet"
+  },
+  "text": {
+    ":": ":",
+    "addpassword": {
+      "choose_name": "por favor ingrese el nombre de su contrasena: ",
+      "choose_addpassword": "Por favor introduzca la contrasena",
+      "no_space": "ja, lo siento, pero este nombre de contrasena no esta validado, puede bloquear el programa (por favor no ponga espacios o \"=\")...",
+      "put_arg": "ja, lo siento, pero este nombre de contrasena no esta validado, puede bloquear el programa (Por favor, ponga argumentos)...",
+      "no_equals": "ja, lo siento, pero este nombre de contrasena no es valido, puede bloquear el programa (por favor, no ponga un signo igual =)...",
+      "confirmed": "haga clic aqui para confirmar confirmado",
+      "warning": "el nombre de la contrasena y la contrasena no deben contener:\n espacios o el símbolo igual \"=\" \ny no deben estar vacios."
+    },
+    "delpassword": {
+      "choose_ligne": "ponga la línea donde se encuentra la contrasena que desea eliminar: ",
+      "del_password": "Esta a punto de eliminar la contraseña en la línea: ",
+      "del_password2": "? Si esta seguro de eliminar esta contrasena, presione 'si'. Si no esta seguro, presione 'no': ",
+      "password_has_del": "tu contraseña en la línea",
+      "password_has_del2": "ha sido borrado",
+      "put_int": "por favor ponga un numero y no letras...",
+      "warning": "para borrar una contrasena debes poner su numero \nsi es la primera contrasena de tu lista luego tendras que poner: \"1\" \n(esta es la linea que le corresponde)",
+      "confirmed": "haga clic aqui para confirmar confirmado",
+      "sure": "esta usted seguro ?"
+    },
+    "getpassword": {
+      "choose": "por favor ingrese el nombre de su contrasena: ",
+      "all_password": "todas sus contrasenas son:",
+      "choose_copy": "por favor ingrese el nombre de su contrasena que desea copiar: ",
+      "copyed": "fue copiado",
+      "confirmed": "haga clic aqui para confirmar",
+      "your_password": "Tu contrasena es:",
+      "warning": "si pones una contrasena que no existe no se mostrara nada!",
+      "not_copyed": "esta contrasena no existe..."
+    },
+    "loggepy": {
+      "name_passewod": "nombre de la nueva contrasena: ",
+      "no_space": "ja, lo siento, pero este nombre de contrasena no esta validado, puede bloquear el programa (por favor, no ponga espacios)...",
+      "register": "sus contrasenas han sido registradas a nombre de: ",
+      "escape": "si no quieres hacer esto escribe \"escape\"",
+      "put_arg": "ah, lo siento, pero este nombre de contrasena no es valido, puede bloquear el programa (por favor, ponga argumentos)...",
+      "main_password": "Por favor, introduzca su contrasena.",
+      "user_main_password": "Creo su contrasena principal Atencion!!! tendras que recordar esta contrasena para acceder a las futuras contrasenas",
+      "check_main_password": "tu contrasena es buena(yes/no): ",
+      "try_again": "bien... comencemos de nuevo",
+      "warning": "el nombre de la contrasena y la contrasena no deben contener:\n espacios o el símbolo igual \"=\" \ny no deben estar vacios.",
+      "confirmed": "haga clic aqui para confirmar confirmado",
+      "choose_number_characters": "Por favor, ponga la longitud de su contrasena\n(se recomienda ver 24)."
+
+    },
+    "relaunch": {
+      "stop": "el programa tuvo que detenerse para el correcto funcionamiento del programa.",
+      "escape": "volver al menu."
+    },
+    "repaired": {
+      "repair_succes": "su archivo de contrasena ha sido cambiado con exito",
+      "sure": "esta a punto de desinstalar loggepy.\nestas seguro de lo que estas haciendo?\ntodas las contrasenas valiosas seran eliminadas.",
+      "confirmed": "haga clic aqui para confirmar confirmado",
+      "to_gods": "estas seguro de lo que estas haciendo?\ntodas las contrasenas se perderan.\na los dioses y buena suerte."
+    },
+    "update": {
+      "looking": "estamos viendo si hay una actualizacion disponible, gracias por su atencion",
+      "new": "una nueva actualizacion esta disponible.",
+      "current_version": "Actualmente estas en la version loggepy",
+      "new_version": ", y la nueva version es ",
+      "choose": "quieres hacer esta actualizacion? (si/no)",
+      "ready_update": "la actualizacipn esta lista para instalarse",
+      "no_update": "no se realizo la actualizacion",
+      "last_version": "ya tienes la ultima version de loggepy",
+      "download": "descargando archivos por favor sea paciente",
+      "title": "una nueva actualizacion",
+      "warning": "asegurate de estar conectado a internet.",
+      "confirmed": "al pulsar este boton aceptas las nuevas implementaciones de esta actualizacion",
+      "error": "no puede actualizar esta version de loggepy, descargue la ultima version",
+      "here": "haga clic aqui"
+    }
+  }
+}

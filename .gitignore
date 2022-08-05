@@ -1,0 +1,8 @@
+#eclipse
+.settings
+
+# other
+bin
+.classpath
+.project
+build.fxbuild

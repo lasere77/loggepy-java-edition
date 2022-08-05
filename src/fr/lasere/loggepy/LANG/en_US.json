@@ -1,0 +1,98 @@
+{
+ "litel": {
+   "generate": "to generate a password press \"w\"",
+   "read": "to read a password press \"r\"",
+   "creata": "to create a password press \"a\"",
+   "exit": "to exit plesse press \"e\"",
+   "see": "to see all your passwords press \"p\"",
+   "copy": "to copy your word press \"c\"",
+   "backup": "if your ./passewords file is corrupted colled this function with \"b\"",
+   "delete": "to delete a password press \"d\"",
+   "info": "to see more details press \"i\"",
+   "update": "to update loggepy press \"u\""
+ },
+  "big":{
+    "b_generate": "to generate a password press \"w\",loggepy will generate an unbreakable password for you, you just gave your password a name to find it later, be careful not to put spaces !!!!!",
+    "b_read": "to read a password press \"r, to read one of your passwords, just press \"r\" and enter the name of your password, el loggepy will give it to you. be careful not to put spaces !!!!!",
+    "b_creata": "to create a password press \"a\",this function will allow you to save a password in loggepy (you will therefore have to specify to loggepy the name of the password and the password in luis itself)",
+    "b_exit": "to exit plesse press \"e\" , this function just left loggepy correctly it is advisable to close it in this way and not with the cross of the window",
+    "b_see": "to see all your passwords press \"p\", this function is to see all of these passwords",
+    "b_copy": "to copy your word press \"c\" , if you press \"c\" you will no longer be able to enter the name of your password and it will automatically be put in your clipboard and you can paste it with the shortcut \"clrt + v\"",
+    "b_backup": "if your ./passewords file is corrupted and you have corrected it, call this function (be careful, this will delete your current file to put the file \"C:/Users/USERNAME/AppData/Roaming/loggepy_backup_passeword/passewords_back\"",
+    "b_delete": "to delete a password press \"d\", this function will delete a password contained in \"C:\\ProgramData\\passworld_loggepy\\passewords\" you will be asked to put the line where the password is located and it will be deleted",
+    "b_update": "to update loggepy press \"u\" loggepy will look on github if there is a new update and if it is it will download the latest update and replace the old files with the new ones, \nit is important to specify that this will not delete any word of passes. \nplease note you will need an internet connection"
+  },
+  "text": {
+    ":": ":",
+    "addpassword": {
+      "choose_name":  "please enter the name of your password : ",
+      "choose_addpassword": "please put the password",
+      "no_space": "ha I'm sorry but this password name is not validated it may crash the program (please do not put a space)...",
+      "put_arg": "ha I'm sorry but this password name is not validated it may crash the program (Please put arguments )...",
+      "no_equals": "ha i m sorry but this password name is not valid it can crash the program (please don t put an equal sign = )...",
+      "confirmed": "click here for confirmed confirmed",
+      "warning": "the password name and password must not contain:\n spaces or the equal symbol \"=\" \nand must not be empty."
+    },
+    "delpassword": {
+      "choose_ligne": "please put the line where the password you want to delete is located : ",
+      "del_password": "you are about to remove the password at line: ",
+      "del_password2": "? if you are sure remove this password, please press 'yes' if you are not sure, please press 'no' : ",
+      "password_has_del": "your password on the line",
+      "password_has_del2": " has been deleted ",
+      "put_int": "please put a number and not letters...",
+      "warning": "to delete a password you must put its number \nif it is the first password in your list you will then have to put: \"1\" \n(this is the line that corresponds to it)",
+      "confirmed": "click here for confirmed confirmed",
+      "sure": "are you sure ?"
+    },
+    "getpassword": {
+      "choose": "please enter the name of your password : ",
+      "all_password": "all of your passwords are :",
+      "choose_copy": "please put the name of your password that you want to copy : ",
+      "copyed": "was copied",
+      "confirmed": "click here for confirmed",
+      "your_password": "your_password is:",
+      "warning": "if you put a password that does not exist nothing will be displayed!",
+      "not_copyed": "this password doesn t exist..."
+    },
+    "loggepy": {
+      "name_passewod": "name of new passeword : ",
+      "no_space": "ha I'm sorry but this password name is not validated it may crash the program (please do not put spaces or \"=\")...",
+      "register": "your passwords has been registered under the name of : ",
+      "escape": "if you don't want to do this type \"escape\"",
+      "put_arg": "ah I'm sorry but this password name is not valid it can crash the program (please put arguments)...",
+      "main_password": "please enter your password.",
+      "user_main_password": "Created your main password Attention!!! you will have to remember this password to access the future passwords",
+      "check_main_password": "your password is good (yes/no): ",
+      "try_again": "ok... let's start again",
+      "warning": "the password name and password must not contain:\n spaces or the equal symbol \"=\" \nand must not be empty.",
+      "confirmed": "click here for confirmed confirmed",
+      "choose_number_characters": "please put the length of your password\n(it is advise watch 24)."
+    },
+    "relaunch": {
+      "stop": "the program had to stop for the proper functioning of the programe. ",
+      "escape": "back to menu."
+    },
+    "repaired": {
+      "repair_succes": "your password file has been successfully changed",
+      "sure": "You are about to uninstall loggepy.\nare you sure of what you are doing?\nall worth passwords will be deleted.",
+      "confirmed": "click here for confirmed confirmed",
+      "to_gods": "are you sure of what you are doing?\nall passwords will be lost.\nto gods and good luck.\n\n"
+    },
+    "update": {
+      "looking": "we are looking if there is an update available, thank you for your attention",
+      "new": "a new update is available.",
+      "current_version": "You are currently on the loggepy version",
+      "new_version": ", and the new version is the ",
+      "choose": "do you want to do this update? (yes/no)",
+      "ready_update": "the update is ready to install",
+      "no_update": "the update was not performed",
+      "last_version": "you already have the latest version of loggepy",
+      "download": "downloading files please be patient",
+      "title": "a new update",
+      "warning": "make sure you are connected to the internet.",
+      "confirmed": "by pressing this button you accept the new implementations of this update",
+      "error": "you cannot upgrade this version of loggepy please download the latest version",
+      "here": "click here"
+    }
+  }
+}
