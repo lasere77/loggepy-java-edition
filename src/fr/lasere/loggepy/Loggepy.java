@@ -79,7 +79,57 @@ public class Loggepy extends Application {
 		
 		Button btnSwitche = new Button();
 		Button btnOfSwitche = new Button();
-
+		
+		Button btnGeneratePassword = new Button();
+		btnGeneratePassword.setText("Generate password");
+		btnGeneratePassword.setLayoutY(100);
+		btnGeneratePassword.setLayoutX(5);
+		
+		Button btnGetPassword = new Button();
+		btnGetPassword.setText("Get password");
+		btnGetPassword.setLayoutY(150);
+		btnGetPassword.setLayoutX(15);
+		
+		Button btnAddPassword = new Button();
+		btnAddPassword.setText("Add password");
+		btnAddPassword.setLayoutY(200);
+		btnAddPassword.setLayoutX(15);
+		
+		Button btnCopy = new Button();
+		btnCopy.setText("Copy");
+		btnCopy.setLayoutY(250);
+		btnCopy.setLayoutX(15);
+		
+		Button btnRepaire = new Button();
+		btnRepaire.setText("Repaire");
+		btnRepaire.setLayoutY(300);
+		btnRepaire.setLayoutX(15);
+		
+		Button btnHelp = new Button();
+		btnHelp.setText("Help");
+		btnHelp.setLayoutY(350);
+		btnHelp.setLayoutX(15);
+		
+		Button btnDelPassword = new Button();
+		btnDelPassword.setText("Del password");
+		btnDelPassword.setLayoutY(400);
+		btnDelPassword.setLayoutX(15);
+		
+		Button btnGetUpdate = new Button();
+		btnGetUpdate.setText("Get update");
+		btnGetUpdate.setLayoutY(450);
+		btnGetUpdate.setLayoutX(15);
+		
+		Button btnExit = new Button();
+		btnExit.setText("Exit");
+		btnExit.setLayoutY(500);
+		btnExit.setLayoutX(15);
+		
+		Button btnUninstall = new Button();
+		btnUninstall.setText("Uninstall");
+		btnUninstall.setLayoutY(550);
+		btnUninstall.setLayoutX(15);
+		
 		//config btnOfSwitche
 		btnOfSwitche.setGraphic(iImgClose);
 		btnOfSwitche.setLayoutY(0);
@@ -87,8 +137,8 @@ public class Loggepy extends Application {
 		btnOfSwitche.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				gui.getChildren().removeAll(rectangleSwitche, borderRectangleSwitche, btnOfSwitche, btnOfSwitche);
-				gui.getChildren().add(btnSwitche);
+				gui.getChildren().removeAll(rectangleSwitche, borderRectangleSwitche, btnOfSwitche, btnOfSwitche, btnGeneratePassword, btnGetPassword, btnAddPassword, btnCopy, btnRepaire, btnHelp, btnDelPassword, btnGetUpdate, btnExit, btnUninstall);
+				gui.getChildren().addAll(btnSwitche);
 			}
 		});
 		
@@ -98,7 +148,7 @@ public class Loggepy extends Application {
 			@Override
 			public void handle(ActionEvent arg0) {
 				gui.getChildren().removeAll(btnSwitche);
-				gui.getChildren().addAll(rectangleSwitche, borderRectangleSwitche, btnOfSwitche);
+				gui.getChildren().addAll(rectangleSwitche, borderRectangleSwitche, btnOfSwitche, btnGeneratePassword, btnGetPassword, btnAddPassword, btnCopy, btnRepaire, btnHelp, btnDelPassword, btnGetUpdate, btnExit, btnUninstall);
 				
 			}
 		});
