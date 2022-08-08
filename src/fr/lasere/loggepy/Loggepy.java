@@ -31,7 +31,7 @@ public class Loggepy extends Application {
 		launch(args);
 	}
 
-	@Override
+	@Override 
 	public void start(Stage stage) throws IOException {
 		new FXMLLoader();
 		Parent gui = FXMLLoader.load(getClass().getResource("Gui/Fxml/Main.fxml"));
