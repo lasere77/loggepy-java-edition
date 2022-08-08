@@ -1,12 +1,15 @@
 package fr.lasere.loggepy.Gui.Controllers;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Controllers {
 	
-	public void btnGeneratPassword(ActionEvent e) {
+	
+	public void btnGeneratPassword(ActionEvent e) throws IOException {
 		System.out.println("btnGeneratPassword");
 	}
 	public void btnGetPassword(ActionEvent e) {

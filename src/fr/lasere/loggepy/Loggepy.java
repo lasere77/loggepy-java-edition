@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
+import fr.lasere.loggepy.Log.LogWriting;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,13 @@ public class Loggepy extends Application {
 	
 	Gson gson = new Gson();
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
+		
+		LogWriting lw = new LogWriting();
+		lw.WriteLogInfo("je sais pas ");
+		lw.WriteLogInfo("je sais pas 10000 ");
+
 		
 		File file = new File("src/fr/lasere/loggepy/Passwords/passwords");
 		if(!file.exists()) {
@@ -27,8 +34,7 @@ public class Loggepy extends Application {
 				e.printStackTrace();
 			}
 		}
-		
-		launch(args);
+		//launch(args);
 	}
 
 	@Override 
@@ -37,6 +43,7 @@ public class Loggepy extends Application {
 		Parent gui = FXMLLoader.load(getClass().getResource("Gui/Fxml/Main.fxml"));
 		Scene scene = new Scene(gui);
 		scene.getStylesheets().add(getClass().getResource("Gui/Css/style.css").toExternalForm());
+		
 		
 		stage.setTitle("loggepy");
 		Image icon = new Image("/assets/img/Logo/index.jpg");
