@@ -19,11 +19,9 @@ public class Loggepy extends Application {
 	Gson gson = new Gson();
 	
 	public static void main(String[] args) throws IOException {
-
-		
+		System.out.println(System.currentTimeMillis());
 		LogWriting lw = new LogWriting();
-		lw.WriteLogInfo("je sais pas ");
-		lw.WriteLogInfo("je sais pas 10000 ");
+		lw.WriteLogInfo("the launch of the application");
 
 		
 		File file = new File("src/fr/lasere/loggepy/Passwords/passwords");
@@ -34,7 +32,7 @@ public class Loggepy extends Application {
 				e.printStackTrace();
 			}
 		}
-		//launch(args);
+		launch(args);
 	}
 
 	@Override 
