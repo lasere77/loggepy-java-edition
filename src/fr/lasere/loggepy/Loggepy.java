@@ -16,13 +16,12 @@ import javafx.stage.Stage;
 
 public class Loggepy extends Application {
 	
-	Gson gson = new Gson();
+	@SuppressWarnings("unused")
+	private Gson gson = new Gson();
+	private static LogWriting lw = new LogWriting();
 	
 	public static void main(String[] args) throws IOException {
-		System.out.println(System.currentTimeMillis());
-		LogWriting lw = new LogWriting();
 		lw.WriteLogInfo("the launch of the application");
-
 		
 		File file = new File("src/fr/lasere/loggepy/Passwords/passwords");
 		if(!file.exists()) {

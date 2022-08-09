@@ -2,12 +2,14 @@ package fr.lasere.loggepy.Gui.Controllers;
 
 import java.io.IOException;
 
+import fr.lasere.loggepy.Log.LogWriting;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Controllers {
 	
+	LogWriting lw = new LogWriting();
 	
 	public void btnGeneratPassword(ActionEvent e) throws IOException {
 		System.out.println("btnGeneratPassword");
@@ -35,6 +37,11 @@ public class Controllers {
 	}
 	public void btnExit(ActionEvent e) {
 		((Stage)(((Button)e.getSource()).getScene().getWindow())).close();
+		try {
+			lw.WriteLogInfo("application and system shutdown");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 }
