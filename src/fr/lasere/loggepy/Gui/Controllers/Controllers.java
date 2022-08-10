@@ -4,36 +4,49 @@ import java.io.IOException;
 
 import fr.lasere.loggepy.Log.LogWriting;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class Controllers {
 	
-	LogWriting lw = new LogWriting();
+	private LogWriting lw = new LogWriting();
+	
+	@FXML
+	private Label path;
 	
 	public void btnGeneratPassword(ActionEvent e) throws IOException {
-		System.out.println("btnGeneratPassword");
+		path.setText("/Generat Password");
+		lw.WriteLogInfo("user was in the section: /Generat Password");
 	}
-	public void btnGetPassword(ActionEvent e) {
-		System.out.println("btnGetPassword");
+	public void btnGetPassword(ActionEvent e) throws IOException {
+		path.setText("/Get Password");
+		lw.WriteLogInfo("user was in the section: /Get Password");
 	}
-	public void btnAddPassword(ActionEvent e) {
-		System.out.println("btnAddPassword");
+	public void btnAddPassword(ActionEvent e) throws IOException {
+		path.setText("/Add Password");
+		lw.WriteLogInfo("user was in the section: /Add Password");
 	}
-	public void btnCopy(ActionEvent e) {
-		System.out.println("btnCopy");
+	public void btnCopy(ActionEvent e) throws IOException {
+		path.setText("/Copy");
+		lw.WriteLogInfo("user was in the section: /Copy");
 	}
-	public void btnRepair(ActionEvent e) {
-		System.out.println("btnRepair");
+	public void btnRepair(ActionEvent e) throws IOException {
+		path.setText("/Repair");
+		lw.WriteLogInfo("user was in the section: /Repair");
 	}
-	public void btnHelp(ActionEvent e) {
-		System.out.println("btnHelp");
+	public void btnHelp(ActionEvent e) throws IOException {
+		path.setText("/Help");
+		lw.WriteLogInfo("user was in the section: /Help");
 	}
-	public void btnDelPassword(ActionEvent e) {
-		System.out.println("btnDelPassword");
+	public void btnDelPassword(ActionEvent e) throws IOException {
+		path.setText("/Del Password");
+		lw.WriteLogInfo("user was in the section: /Del Password");
 	}
-	public void btnGetUpdate(ActionEvent e) {
-		System.out.println("btnGetUpdate");
+	public void btnGetUpdate(ActionEvent e) throws IOException {
+		path.setText("/Get Update");
+		lw.WriteLogInfo("user was in the section: /Get Update");
 	}
 	public void btnExit(ActionEvent e) {
 		((Stage)(((Button)e.getSource()).getScene().getWindow())).close();

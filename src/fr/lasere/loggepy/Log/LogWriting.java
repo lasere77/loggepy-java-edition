@@ -9,14 +9,14 @@ import java.sql.Timestamp;
 
 public class LogWriting {
 	
-	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	
-	private Path path = Paths.get("src/fr/lasere/loggepy/Log/log");
+	private final Path path = Paths.get("src/fr/lasere/loggepy/Log/log");
 	private final String INFO = "INFO -> ";
 	private final String WARN = "WARN -> ";
 	private final String ERROR = "ERROR -> ";
 	private final String FATAL = "FATAL -> ";
-	private String time = "["+timestamp+"] ";
+	private String time = "[" + timestamp + "] ";
 	
 	public void WriteLogInfo(String text) throws IOException  {		
 		Files.write(path, time.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
