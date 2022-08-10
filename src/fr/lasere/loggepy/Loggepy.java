@@ -3,8 +3,6 @@ package fr.lasere.loggepy;
 import java.io.File;
 import java.io.IOException;
 
-import com.google.gson.Gson;
-
 import fr.lasere.loggepy.Log.LogWriting;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +13,9 @@ import javafx.stage.Stage;
 
 
 public class Loggepy extends Application {
-	
-	@SuppressWarnings("unused")
-	private Gson gson = new Gson();
+
 	private static LogWriting lw = new LogWriting();
+
 	
 	public static void main(String[] args) throws IOException {
 		lw.WriteLogInfo("the launch of the application");
@@ -41,13 +38,11 @@ public class Loggepy extends Application {
 		Scene scene = new Scene(gui);
 		scene.getStylesheets().add(getClass().getResource("Gui/Css/style.css").toExternalForm());
 		
-		
 		stage.setTitle("loggepy");
 		Image icon = new Image("/assets/img/Logo/index.jpg");
 		stage.getIcons().add(icon);
 		stage.setResizable(false);
 		
-	
 		stage.setScene(scene);
 		stage.show();
 	}	

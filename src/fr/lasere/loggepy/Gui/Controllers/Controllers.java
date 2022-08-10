@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class Controllers {
-	
+
 	private LogWriting lw = new LogWriting();
 	
 	@FXML
