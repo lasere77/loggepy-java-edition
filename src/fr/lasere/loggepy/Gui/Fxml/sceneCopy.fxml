@@ -23,7 +23,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="Home" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGeneratPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="generat password" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -47,7 +47,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnCopy" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="copy " textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="home" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -114,7 +114,7 @@
          <children>
             <Pane prefHeight="153.0" prefWidth="670.0" style="-fx-background-color: #083def; -fx-background-radius: 50 50 50 50;">
                <children>
-                  <Label layoutX="14.0" layoutY="35.0" text="/Generat password" textFill="#00f8ff">
+                  <Label layoutX="14.0" layoutY="35.0" text="/Copy" textFill="#00f8ff">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -134,9 +134,9 @@
                         <Font size="96.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IDBtnConfirmeGeneratPassword" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeGeneratPassword" prefHeight="25.0" prefWidth="149.0" stylesheets="@../Css/style.css" text="generate" />
-                  <TextField fx:id="IDEntryGeneratPassword" layoutX="261.0" layoutY="153.0" stylesheets="@../Css/style.css" />
-                  <Label fx:id="IDLabelConfirme" alignment="CENTER" layoutX="3.0" layoutY="230.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
+                  <Button fx:id="IDBtnConfirmeCopy" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeCopy" prefHeight="25.0" prefWidth="149.0" stylesheets="@../Css/style.css" text="confirme" />
+                  <TextField fx:id="IDEntryCopy" layoutX="261.0" layoutY="153.0" stylesheets="@../Css/style.css" />
+                  <Label fx:id="IDLabelConfirmeCopy" alignment="CENTER" layoutX="3.0" layoutY="230.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
                </children></Pane>
          </children>
       </VBox>
