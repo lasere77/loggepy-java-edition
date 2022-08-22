@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="877.0" style="-fx-background-color: #222426;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.lasere.loggepy.Gui.Controllers.Controllers">
+   <children>
+      <VBox prefHeight="593.0" prefWidth="877.0" style="-fx-background-color: #083def;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="432.0" prefWidth="877.0">
+               <children>
+                  <Label layoutX="276.0" layoutY="14.0" text="welcome to loggepy" textFill="#00f8ff">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="321.0" layoutY="91.0" mnemonicParsing="false" onAction="#btnLaunch" prefHeight="25.0" prefWidth="234.0" stylesheets="@../Css/style.css" text="launch" textFill="#00f8ff" />
+                  <Button layoutX="369.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="25.0" prefWidth="137.0" stylesheets="@../Css/style.css" text="exit" textFill="#00f8ff" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

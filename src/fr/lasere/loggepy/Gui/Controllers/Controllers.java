@@ -31,7 +31,7 @@ public class Controllers {
 	private String namePassword;
 	private String password;
 	
-	//generate password
+	//generated password
 	@FXML
 	private TextField IDEntryGeneratPassword;
 	@FXML 
@@ -64,9 +64,9 @@ public class Controllers {
 	private Label IDpatchNote, IDLabelConfirmeUpdate;
 	
 	
-	public void btnGeneratPassword(ActionEvent e) throws IOException {
-		lw.WriteLogInfo("user was in the section: /Generat Password");
-		setScene(e, "sceneGeneratPassword.fxml");
+	public void btnGeneratedPassword(ActionEvent e) throws IOException {
+		lw.WriteLogInfo("user was in the section: /Generated Password");
+		setScene(e, "sceneGeneratedPassword.fxml");
 	}
 	public void btnGetPassword(ActionEvent e) throws IOException {
 		lw.WriteLogInfo("user was in the section: /Get Password");
@@ -97,13 +97,16 @@ public class Controllers {
 		setScene(e, "sceneUpdate.fxml");
 	}
 	
+	public void btnLaunch(ActionEvent e) throws IOException {
+		setScene(e, "sceneHome.fxml");
+	}
 	public void btnExit(ActionEvent e) throws IOException {
 		((Stage)(((Button)e.getSource()).getScene().getWindow())).close();
 		lw.WriteLogInfo("application and system shutdown");
 	}
 	public void btnHome(ActionEvent e) throws IOException {
 		lw.WriteLogInfo("user was in the section: /Home");
-		setScene(e, "Main.fxml");
+		setScene(e, "sceneHome.fxml");
 	}
 	
 	
