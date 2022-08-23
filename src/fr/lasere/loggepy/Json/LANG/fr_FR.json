@@ -1,15 +1,14 @@
 {
  "litel": {
-  "generate": "pour generer un mot de passe appuyez sur \"w\"",
-  "read": "pour lire un mot de passe appuyez sur \"r\"",
-  "creata": "pour creer un mot de passe appuyez sur \"a\"",
-  "exit": "pour quitter, appuyez sur \"e\"",
-  "see": "pour voir tous vos mots de passe appuyez sur \"p\"",
-  "copy": "pour copier votre mot appuyez sur \"c\"",
-  "backup": "si votre fichier ./passewords est corrompu, collez cette fonction avec \"b\"",
-  "delete": "pour supprimer un mot de passe appuyez sur \"d\"",
-  "info": "pour voir plus de details appuyez sur \"i\"",
-  "update": "pour mettre a jour loggepy appuyez sur \"u\""
+  "generate": "générer un mot de passe",
+  "creata": "créé un mot de passe",
+  "exit": "quitté",
+  "see": "voire vaux mot de passe",
+  "copy": "copier un mot de passe",
+  "backup": "faire une backup",
+  "delete": "supprimé un mot de passe",
+  "info": "info",
+  "update": "mise a jour"
  },
  "big":{
     "b_generate": "pour generer un mot de passe appuyez sur \"w\",loggepy vous generera un mot de passe incassable, vous avez juste donne un nom a votre mot de passe pour le retrouver plus tard, attention a ne pas mettre d espaces !!!!!",

@@ -2,12 +2,14 @@ package fr.lasere.loggepy.Gui.Controllers;
 
 import java.io.IOException;
 
+import com.google.gson.Gson;
+
 import fr.lasere.loggepy.Backup.Repair;
 import fr.lasere.loggepy.Log.LogWriting;
 import fr.lasere.loggepy.Passwords.AddPassword;
 import fr.lasere.loggepy.Passwords.CopyPassword;
 import fr.lasere.loggepy.Passwords.DelPassword;
-import fr.lasere.loggepy.Passwords.GeneratPassword;
+import fr.lasere.loggepy.Passwords.GeneratedPassword;
 import fr.lasere.loggepy.Passwords.GetPassword;
 import fr.lasere.loggepy.Update.Update;
 import javafx.event.ActionEvent;
@@ -63,6 +65,10 @@ public class Controllers {
 	@FXML
 	private Label IDpatchNote, IDLabelConfirmeUpdate;
 	
+	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later) and to change the language of the application 
+		setScene(e, "sceneHome.fxml");
+	}
+	
 	
 	public void btnGeneratedPassword(ActionEvent e) throws IOException {
 		lw.WriteLogInfo("user was in the section: /Generated Password");
@@ -97,9 +103,6 @@ public class Controllers {
 		setScene(e, "sceneUpdate.fxml");
 	}
 	
-	public void btnLaunch(ActionEvent e) throws IOException {
-		setScene(e, "sceneHome.fxml");
-	}
 	public void btnExit(ActionEvent e) throws IOException {
 		((Stage)(((Button)e.getSource()).getScene().getWindow())).close();
 		lw.WriteLogInfo("application and system shutdown");
@@ -112,9 +115,14 @@ public class Controllers {
 	
 	
 	
+	private static Gson gson = new Gson();
+
+	
 	public void btnConfirmeGeneratPassword(ActionEvent e) {
 		namePassword = IDEntryGeneratPassword.getText();
-		new GeneratPassword().GeneratPasswords(namePassword);
+		GeneratedPassword password = new GeneratedPassword(IDEntryGeneratPassword.getText());
+		String json = gson.toJson(password);
+		System.out.println(json);
 		IDLabelConfirme.setText("your password has been saved (this information is fake)");
 	}
 	

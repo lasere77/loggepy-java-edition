@@ -18,7 +18,7 @@ public class LogWriting {
 	private final String FATAL = "FATAL -> ";
 	private String time = "[" + timestamp + "] ";
 	
-	public void WriteLogInfo(String text) throws IOException  {		
+	public void WriteLogInfo(String text) throws IOException  {
 		Files.write(path, time.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		Files.write(path, INFO.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		text+="\n";
@@ -35,7 +35,7 @@ public class LogWriting {
 	public void WriteLogError(String text) throws IOException {
 		Files.write(path, time.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		Files.write(path, ERROR.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
-		text+="\n";
+		text+="\n"; 
 		Files.write(path, text.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 	}
 	

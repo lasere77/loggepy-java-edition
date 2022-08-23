@@ -1,15 +1,14 @@
 {
  "litel": {
-   "generate": "to generate a password press \"w\"",
-   "read": "to read a password press \"r\"",
-   "creata": "to create a password press \"a\"",
-   "exit": "to exit plesse press \"e\"",
-   "see": "to see all your passwords press \"p\"",
-   "copy": "to copy your word press \"c\"",
-   "backup": "if your ./passewords file is corrupted colled this function with \"b\"",
-   "delete": "to delete a password press \"d\"",
-   "info": "to see more details press \"i\"",
-   "update": "to update loggepy press \"u\""
+   "generate": "generated password",
+   "creata": "add password",
+   "exit": "exit",
+   "see": "get password",
+   "copy": "copy",
+   "backup": "backup",
+   "delete": "del password",
+   "info": "help",
+   "update": "update"
  },
   "big":{
     "b_generate": "to generate a password press \"w\",loggepy will generate an unbreakable password for you, you just gave your password a name to find it later, be careful not to put spaces !!!!!",

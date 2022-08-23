@@ -1,15 +1,14 @@
 {
   "litel": {
-   "generate": "para generar una contrasena presiona \"w\"",
-   "read": "para leer una contrasena presiona \"r\"",
-   "creata": "para crear una contrasena presiona \"a\"",
-   "exit": "para salir por favor presiona \"e\"",
-   "see": "para ver todas tus contrasenas presiona \"p\"",
-   "copy": "para copiar tu palabra presiona \"c\"",
-   "backup": "si su archivo ./passewords esta danado, recopile esta funcion con \"b\"",
-   "delete": "para borrar una contrasena presiona \"d\"",
-   "info": "para ver mas detalles presiona \"i\"",
-   "update": "para actualizar loggepy presiona \"u\""
+   "generate": "generar una contraseña",
+   "creata": "creó una contraseña",
+   "exit": "en paz",
+   "see": "incluso vale la pena la contraseña",
+   "copy": "copiar una contraseña",
+   "backup": "hacer una copia de seguridad",
+   "delete": "borrado una contraseña",
+   "info": "información",
+   "update": "actualización"
  },
  "big":{
     "b_generate": "para generar una contrasena presiona \"w\",loggepy generara una contrasena indescifrable para ti, solo le diste un nombre a tu contrasena para encontrarla mas tarde, ten cuidado de no poner espacios!!!!!",

@@ -12,12 +12,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
-public class Loggepy extends Application {
-
-	private static LogWriting lw = new LogWriting();
-
+public class Loggepy extends Application {	
 	
-	public static void main(String[] args) throws IOException {
+	private static LogWriting lw = new LogWriting();
+	
+	public static void main(String[] args) throws IOException {		
 		lw.WriteLogInfo("the launch of the application");
 		
 		File file = new File("src/fr/lasere/loggepy/Passwords/passwords");
