@@ -1,19 +1,27 @@
 package fr.lasere.loggepy.Passwords;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.stream.Collectors;
 
-import fr.lasere.loggepy.Loggepy;
 import fr.lasere.loggepy.Log.LogWriting;
 
 public class GetPassword {
 	
 	private static LogWriting lw = new LogWriting();
+	private String allPasswords = "";
 	
 	public String GetPasswords() throws IOException {
 		lw.WriteLogInfo("the user viewed these passwords");
-		return Files.newBufferedReader(Loggepy.passwordsFile, StandardCharsets.UTF_8).lines().collect(Collectors.joining());
+		
+	    File passwordFile = new File("src/fr/lasere/loggepy/Passwords/passwords");
+        FileReader readPassword = new FileReader(passwordFile);
+        char[] i = new char[1000];
+        readPassword.read(i);
+        for(char j : i) {
+            readPassword.close();
+            allPasswords += j;
+    	}
+		return allPasswords;
 	}
 }

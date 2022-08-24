@@ -33,7 +33,7 @@ public class Controllers {
 	
 	//generated password
 	@FXML
-	private TextField IDEntryGeneratPassword;
+	private TextField IDEntryGeneratedPassword;
 	@FXML 
 	private Label IDLabelConfirme;
 	//get password
@@ -111,13 +111,15 @@ public class Controllers {
 	
 
 	
-	public void btnConfirmeGeneratPassword(ActionEvent e) {
-		namePassword = IDEntryGeneratPassword.getText();
-		new GeneratedPassword().GeneratedPasswords(namePassword);
-		IDLabelConfirme.setText("your password has been saved (this information is fake)");
+	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
+		namePassword = IDEntryGeneratedPassword.getText();
+		if(namePassword == null || namePassword == "") {
+			IDLabelConfirme.setText("please put argument");
+		}else {
+			IDLabelConfirme.setText("your password has been saved:" + new GeneratedPassword().GeneratedPasswords(namePassword));
+		}
 	}
-	
-	public void  btnConfirmeGetPassword(ActionEvent e) throws IOException {
+	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) {
