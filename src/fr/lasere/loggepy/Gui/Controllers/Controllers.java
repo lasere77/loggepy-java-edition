@@ -2,15 +2,13 @@ package fr.lasere.loggepy.Gui.Controllers;
 
 import java.io.IOException;
 
-import com.google.gson.Gson;
-
 import fr.lasere.loggepy.Backup.Repair;
 import fr.lasere.loggepy.Log.LogWriting;
 import fr.lasere.loggepy.Passwords.AddPassword;
 import fr.lasere.loggepy.Passwords.CopyPassword;
 import fr.lasere.loggepy.Passwords.DelPassword;
-import fr.lasere.loggepy.Passwords.GeneratedPassword;
 import fr.lasere.loggepy.Passwords.GetPassword;
+import fr.lasere.loggepy.Passwords.GeneratedPassword.GeneratedPassword;
 import fr.lasere.loggepy.Update.Update;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,8 +37,6 @@ public class Controllers {
 	@FXML 
 	private Label IDLabelConfirme;
 	//get password
-	@FXML
-	private TextField IDEntryGetPassword;
 	@FXML 
 	private Label IDLabelConfirmeGetPassword;
 	//add password
@@ -111,25 +107,18 @@ public class Controllers {
 		lw.WriteLogInfo("user was in the section: /Home");
 		setScene(e, "sceneHome.fxml");
 	}
+
 	
-	
-	
-	
-	private static Gson gson = new Gson();
 
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) {
 		namePassword = IDEntryGeneratPassword.getText();
-		GeneratedPassword password = new GeneratedPassword(IDEntryGeneratPassword.getText());
-		String json = gson.toJson(password);
-		System.out.println(json);
+		new GeneratedPassword().GeneratedPasswords(namePassword);
 		IDLabelConfirme.setText("your password has been saved (this information is fake)");
 	}
 	
-	public void  btnConfirmeGetPassword(ActionEvent e) {
-		namePassword = IDEntryGetPassword.getText();
-		new GetPassword().GetPasswords(namePassword);
-		IDLabelConfirmeGetPassword.setText("your password is: (this information is fake)");
+	public void  btnConfirmeGetPassword(ActionEvent e) throws IOException {
+		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) {
 		namePassword = IDEntryAddPasswordNamePassword.getText();

@@ -1,7 +1,8 @@
 package fr.lasere.loggepy;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import fr.lasere.loggepy.Log.LogWriting;
 import javafx.application.Application;
@@ -15,18 +16,10 @@ import javafx.stage.Stage;
 public class Loggepy extends Application {	
 	
 	private static LogWriting lw = new LogWriting();
+	public static final Path passwordsFile = Paths.get("src/fr/lasere/loggepy/Passwords/passwords");
 	
-	public static void main(String[] args) throws IOException {		
+	public static void main(String[] args) throws IOException {	
 		lw.WriteLogInfo("the launch of the application");
-		
-		File file = new File("src/fr/lasere/loggepy/Passwords/passwords");
-		if(!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		launch(args);
 	}
 
