@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 public class Controllers {
 
 	private LogWriting lw = new LogWriting();
+	private GeneratedPassword generatedPassword = new GeneratedPassword();
+	private AddPassword addPassword = new AddPassword();
 	
 	private Stage stage;
 	private Scene scene;
@@ -109,24 +111,19 @@ public class Controllers {
 	}
 
 	
-
+	
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryGeneratedPassword.getText();
-		if(namePassword == null || namePassword == "") {
-			IDLabelConfirme.setText("please put argument");
-		}else {
-			IDLabelConfirme.setText("your password has been saved:" + new GeneratedPassword().GeneratedPasswords(namePassword));
-		}
+		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:" , generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
 	}
-	public void btnConfirmeAddPassword(ActionEvent e) {
+	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
 		password = IDEntryAddPasswordPassword.getText();
-		new AddPassword().AddPasswords(namePassword, password);
-		IDLabelConfirmeAddPassword.setText("your password is: (this information is fake)");
+		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:", addPassword.AddPasswords(namePassword, password));
 	}
 	public void btnConfirmeCopy(ActionEvent e) {
 		namePassword = IDEntryCopy.getText();
@@ -147,6 +144,14 @@ public class Controllers {
 		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");
 	}
 	
+	
+	private void checkIfArgAsPut(Label iDLabel, String text, String action) throws IOException {
+		if(namePassword == null || namePassword == "") {
+			iDLabel.setText("please put argument");
+		}else {
+			iDLabel.setText(text + action);
+		}
+	}
 	
 	private void setScene(ActionEvent e, String file) throws IOException {
 		Parent gui = FXMLLoader.load(getClass().getResource("../Fxml/" + file));
