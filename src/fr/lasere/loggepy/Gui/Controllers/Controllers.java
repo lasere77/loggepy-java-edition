@@ -26,6 +26,8 @@ public class Controllers {
 	private LogWriting lw = new LogWriting();
 	private GeneratedPassword generatedPassword = new GeneratedPassword();
 	private AddPassword addPassword = new AddPassword();
+	private GetPassword getPassword = new GetPassword();
+	private DelPassword delPassword = new DelPassword();
 	
 	private Stage stage;
 	private Scene scene;
@@ -56,7 +58,7 @@ public class Controllers {
 	private Label IDLabelConfirmeRepair;
 	//del passwod
 	@FXML
-	private TextField IDEntryDelPassword;
+	private TextField IDEntryDelPassword, IDEntryDelPasswordNamePassword;
 	@FXML
 	private Label IDLabelConfirmeDelPassword;
 	//Update
@@ -115,16 +117,18 @@ public class Controllers {
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryGeneratedPassword.getText();
-		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:" , generatedPassword.GeneratedPasswords(namePassword));
+		checkIfArgAsPut(IDLabelConfirme, "your password has been saved:" , generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
-		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
+		IDLabelConfirmeGetPassword.setText(getPassword.GetPasswords());
+		System.out.println(getPassword.GetPasswords());
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
 		password = IDEntryAddPasswordPassword.getText();
 		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:", addPassword.AddPasswords(namePassword, password));
 	}
+	//in development
 	public void btnConfirmeCopy(ActionEvent e) {
 		namePassword = IDEntryCopy.getText();
 		new CopyPassword().CopyPasswords(namePassword);
@@ -134,18 +138,18 @@ public class Controllers {
 		new Repair().Repaired();
 		IDLabelConfirmeRepair.setText("we have tried to restore the password (this information is fake)");
 	}
-	public void btnConfirmeDelPassword(ActionEvent e) {
-		namePassword = IDEntryDelPassword.getText();
-		new DelPassword().DelPassword(namePassword);
-		IDLabelConfirmeDelPassword.setText("your password has been deleted (this information is fake)");
+	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
+		namePassword = IDEntryDelPasswordNamePassword.getText();
+		password = IDEntryDelPassword.getText();
+		new DelPassword().getDelPassword(namePassword, password);
+		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) {
 		new Update().Updates();
 		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");
 	}
 	
-	
-	private void checkIfArgAsPut(Label iDLabel, String text, String action) throws IOException {
+	private void checkIfArgAsPut(Label iDLabel, String text, Object action) throws IOException {
 		if(namePassword == null || namePassword == "") {
 			iDLabel.setText("please put argument");
 		}else {

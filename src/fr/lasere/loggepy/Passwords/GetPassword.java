@@ -16,7 +16,7 @@ public class GetPassword {
 		
 	    File passwordFile = new File("src/fr/lasere/loggepy/Passwords/passwords");
         FileReader readPassword = new FileReader(passwordFile);
-        char[] i = new char[1000];
+        char[] i = new char[3000];
         readPassword.read(i);
         for(char j : i) {
             readPassword.close();

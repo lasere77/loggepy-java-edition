@@ -28,6 +28,7 @@ public class GeneratedPassword {
 	}
 	
 	private String setPassword() throws IOException {
+		fragmentePassword = "";
 		for(int i = 0; i <= 26; i++) {
 			int rand = random.nextInt(3 + 1);
 			if (rand == 0) {
