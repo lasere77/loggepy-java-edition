@@ -1,8 +1,9 @@
 package fr.lasere.loggepy.Passwords;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import fr.lasere.loggepy.Log.LogWriting;
 
@@ -14,14 +15,13 @@ public class GetPassword {
 	public String GetPasswords() throws IOException {
 		lw.WriteLogInfo("the user viewed these passwords");
 		
-	    File passwordFile = new File("src/fr/lasere/loggepy/Passwords/passwords");
-        FileReader readPassword = new FileReader(passwordFile);
-        char[] i = new char[3000];
-        readPassword.read(i);
-        for(char j : i) {
-            readPassword.close();
-            allPasswords += j;
-    	}
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/fr/lasere/loggepy/Passwords/passwords"), "UTF-8"));
+		String line = br.readLine();
+		while (line != null) {
+			allPasswords += line + "\n";
+			line = br.readLine();
+		}
+		br.close();
 		return allPasswords;
 	}
 }

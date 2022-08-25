@@ -44,7 +44,7 @@ public class JsonReader {
 					return result;
 				}
 			}catch (Exception e) {
-				lw.WriteLogError("what if was not supposed to happen... an argument is missing to be able to access the json data" + error);
+				lw.WriteLogError("what if was not supposed to happen... an argument is missing to be able to access the json data");
 			}
 			return error;	
 		} catch (Exception e) {

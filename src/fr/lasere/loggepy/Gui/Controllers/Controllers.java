@@ -26,7 +26,6 @@ public class Controllers {
 	private LogWriting lw = new LogWriting();
 	private GeneratedPassword generatedPassword = new GeneratedPassword();
 	private AddPassword addPassword = new AddPassword();
-	private GetPassword getPassword = new GetPassword();
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
 	
@@ -121,8 +120,7 @@ public class Controllers {
 		checkIfArgAsPut(IDLabelConfirme, "your password has been saved:" , generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
-		IDLabelConfirmeGetPassword.setText(getPassword.GetPasswords());
-		System.out.println(getPassword.GetPasswords());
+		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
@@ -142,7 +140,6 @@ public class Controllers {
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
-		new DelPassword().getDelPassword(namePassword, password);
 		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) {
