@@ -26,7 +26,7 @@ public class DelPassword {
 	
 	private String delPassword(String fullPassword) throws IOException {
 		oldPassword = new GetPassword().GetPasswords();
-		allPassword = oldPassword.replaceAll(fullPassword, "");
-		return allPassword;
+		allPassword = oldPassword.replaceAll(fullPassword, "f");
+		return "test";
 	}
 }

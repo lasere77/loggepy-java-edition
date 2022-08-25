@@ -17,6 +17,7 @@ public class Loggepy extends Application {
 	
 	private static LogWriting lw = new LogWriting();
 	public static final Path passwordsFile = Paths.get("src/fr/lasere/loggepy/Passwords/passwords");
+	public static final Path backupPasswordsFile = Paths.get("src/fr/lasere/loggepy/Backup/backupPassword");
 	
 	public static void main(String[] args) throws IOException {	
 		lw.WriteLogInfo("the launch of the application");

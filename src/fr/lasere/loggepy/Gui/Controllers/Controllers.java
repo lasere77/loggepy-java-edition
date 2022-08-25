@@ -28,6 +28,7 @@ public class Controllers {
 	private AddPassword addPassword = new AddPassword();
 	private GetPassword getPassword = new GetPassword();
 	private DelPassword delPassword = new DelPassword();
+	private Repair repair = new Repair();
 	
 	private Stage stage;
 	private Scene scene;
@@ -134,9 +135,9 @@ public class Controllers {
 		new CopyPassword().CopyPasswords(namePassword);
 		IDLabelConfirmeCopy.setText("your password is: (this information is fake)");
 	}
-	public void btnConfirmeRepair(ActionEvent e) {
-		new Repair().Repaired();
-		IDLabelConfirmeRepair.setText("we have tried to restore the password (this information is fake)");
+	public void btnConfirmeRepair(ActionEvent e) throws IOException {
+		repair.Repaired();
+		IDLabelConfirmeRepair.setText("we have tried to restore the password");
 	}
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
