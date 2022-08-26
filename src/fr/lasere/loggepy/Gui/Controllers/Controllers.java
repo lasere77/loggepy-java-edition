@@ -28,6 +28,7 @@ public class Controllers {
 	private AddPassword addPassword = new AddPassword();
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
+	private GetPassword oldPassword = new GetPassword();
 	
 	private Stage stage;
 	private Scene scene;
@@ -140,7 +141,7 @@ public class Controllers {
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
-		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password));
+		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) {
 		new Update().Updates();

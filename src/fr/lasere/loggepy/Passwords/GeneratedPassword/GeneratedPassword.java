@@ -21,7 +21,7 @@ public class GeneratedPassword {
 	private String fragmentePassword = "";
 	
 	public String GeneratedPasswords(String namePassword) throws IOException {
-		String fullPassword = namePassword + "=" + setPassword() + "\n";
+		String fullPassword = "\n" + namePassword + "=" + setPassword();
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
 		return fullPassword;

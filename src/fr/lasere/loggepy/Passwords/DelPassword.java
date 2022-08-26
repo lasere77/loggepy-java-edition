@@ -14,10 +14,8 @@ public class DelPassword {
 	
 	private String fullPassword;
 	private String allPassword;
-	private String oldPassword;
 	
-	//not functional
-	public String getDelPassword(String namePassword, String password) throws IOException {
+	public String getDelPassword(String namePassword, String password, String oldPassword2) throws IOException {
 		fullPassword = namePassword + "=" + password;
 		if(!passwordFile.exists()) {
 			try {
@@ -29,18 +27,15 @@ public class DelPassword {
 		}else {
 			FileWriter fw = new FileWriter(passwordFile);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(delPassword(fullPassword));
+			bw.write(delPassword(fullPassword, oldPassword2));
 			bw.close();
 			fw.close();
 		}
 		return fullPassword;
 	}
 	
-	private String delPassword(String fullPassword) throws IOException {
-		oldPassword = new GetPassword().GetPasswords();
-		System.out.println(oldPassword);
-		allPassword = oldPassword.replaceAll(fullPassword, "\n");
-		System.out.println(allPassword);
+	private String delPassword(String fullPassword, String oldPassword) throws IOException {
+		allPassword = oldPassword.replaceAll(fullPassword, "");
 		return allPassword;
 	}
 }

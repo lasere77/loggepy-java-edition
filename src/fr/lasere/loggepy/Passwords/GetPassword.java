@@ -14,12 +14,16 @@ public class GetPassword {
 	
 	public String GetPasswords() throws IOException {
 		lw.WriteLogInfo("the user viewed these passwords");
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/fr/lasere/loggepy/Passwords/passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
 			allPasswords += line + "\n";
 			line = br.readLine();
+			if(line == "\n") {
+				System.out.println("je ne suis pas une ligne vide");
+			}
+			System.out.println(line);
 		}
 		br.close();
 		return allPasswords;
