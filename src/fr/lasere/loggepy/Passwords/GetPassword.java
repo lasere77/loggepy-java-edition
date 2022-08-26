@@ -20,10 +20,6 @@ public class GetPassword {
 		while (line != null) {
 			allPasswords += line + "\n";
 			line = br.readLine();
-			if(line == "\n") {
-				System.out.println("je ne suis pas une ligne vide");
-			}
-			System.out.println(line);
 		}
 		br.close();
 		return allPasswords;

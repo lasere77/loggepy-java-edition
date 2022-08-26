@@ -15,6 +15,9 @@ public class DelPassword {
 	private String fullPassword;
 	private String allPassword;
 	
+	/*
+	 * You still need to remove unnecessary line breaks.
+	 */
 	public String getDelPassword(String namePassword, String password, String oldPassword2) throws IOException {
 		fullPassword = namePassword + "=" + password;
 		if(!passwordFile.exists()) {

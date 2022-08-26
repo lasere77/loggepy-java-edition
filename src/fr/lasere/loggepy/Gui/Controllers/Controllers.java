@@ -29,6 +29,7 @@ public class Controllers {
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
 	private GetPassword oldPassword = new GetPassword();
+	private CopyPassword copyPassword = new CopyPassword();
 	
 	private Stage stage;
 	private Scene scene;
@@ -129,10 +130,9 @@ public class Controllers {
 		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:", addPassword.AddPasswords(namePassword, password));
 	}
 	//in development
-	public void btnConfirmeCopy(ActionEvent e) {
+	public void btnConfirmeCopy(ActionEvent e) throws IOException {
 		namePassword = IDEntryCopy.getText();
-		new CopyPassword().CopyPasswords(namePassword);
-		IDLabelConfirmeCopy.setText("your password is: (this information is fake)");
+		checkIfArgAsPut(IDLabelConfirmeCopy, "your password has been copied: ", copyPassword.CopyPasswords(namePassword));
 	}
 	public void btnConfirmeRepair(ActionEvent e) throws IOException {
 		repair.Repaired();
