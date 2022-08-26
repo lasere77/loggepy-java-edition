@@ -66,6 +66,10 @@ public class Controllers {
 	//Update
 	@FXML
 	private Label IDpatchNote, IDLabelConfirmeUpdate;
+	//help
+	@FXML
+	private Label IDLabelInfo;
+	
 	
 	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later) and to change the language of the application 
 		setScene(e, "sceneHome.fxml");
@@ -113,7 +117,6 @@ public class Controllers {
 		lw.WriteLogInfo("user was in the section: /Home");
 		setScene(e, "sceneHome.fxml");
 	}
-
 	
 	
 	
@@ -129,7 +132,6 @@ public class Controllers {
 		password = IDEntryAddPasswordPassword.getText();
 		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:", addPassword.AddPasswords(namePassword, password));
 	}
-	//in development
 	public void btnConfirmeCopy(ActionEvent e) throws IOException {
 		namePassword = IDEntryCopy.getText();
 		checkIfArgAsPut(IDLabelConfirmeCopy, "your password has been copied: ", copyPassword.CopyPasswords(namePassword));
@@ -138,11 +140,15 @@ public class Controllers {
 		repair.Repaired();
 		IDLabelConfirmeRepair.setText("we have tried to restore the password");
 	}
+	public void IDBtnConfirmeHelp(ActionEvent e) {
+		//IDLabelInfo.setText("generated password: in this scene you will have to put in the first textFied the name of your password (what it is responsible for) \nand you will only have to press the button to validate and generate your password");
+	}
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
 		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
+	//in development
 	public void btnConfirmeUpdate(ActionEvent e) {
 		new Update().Updates();
 		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");

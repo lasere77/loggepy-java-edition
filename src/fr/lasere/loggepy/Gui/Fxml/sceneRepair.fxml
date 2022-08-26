@@ -128,13 +128,13 @@
          <children>
             <Pane prefHeight="384.0" prefWidth="670.0">
                <children>
-                  <Label layoutX="252.0" layoutY="14.0" text="repair" textFill="#00f8ff">
+                  <Label layoutX="44.0" layoutY="125.0" text="if you have deleted a password while it is useful to you, you can try to repair it press to confirm" textFill="#00f8ff">
                      <font>
-                        <Font size="64.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button layoutX="305.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnConfirmeRepair" stylesheets="@../Css/style.css" text="confirme" textFill="#00f8ff" />
-                  <Label fx:id="IDLabelConfirmeRepair" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="181.0" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
+                  <Button layoutX="305.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnConfirmeRepair" stylesheets="@../Css/style.css" text="confirme" textFill="#00f8ff" />
+                  <Label fx:id="IDLabelConfirmeRepair" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="237.0" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
                </children></Pane>
          </children>
       </VBox>

@@ -129,12 +129,12 @@
          <children>
             <Pane prefHeight="402.0" prefWidth="670.0">
                <children>
-                  <Label layoutX="254.0" text="rule" textFill="#00f8ff">
+                  <Label layoutX="120.0" layoutY="115.0" text="please put the name of the password you want to copy" textFill="#00f8ff">
                      <font>
-                        <Font size="96.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IDBtnConfirmeCopy" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeCopy" prefHeight="25.0" prefWidth="149.0" stylesheets="@../Css/style.css" text="confirme" />
+                  <Button fx:id="IDBtnConfirmeCopy" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeCopy" prefHeight="25.0" prefWidth="149.0" stylesheets="@../Css/style.css" text="confirme" textFill="#00f8ff" />
                   <TextField fx:id="IDEntryCopy" layoutX="261.0" layoutY="153.0" stylesheets="@../Css/style.css" />
                   <Label fx:id="IDLabelConfirmeCopy" alignment="CENTER" layoutX="3.0" layoutY="230.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
                </children></Pane>

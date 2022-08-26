@@ -128,11 +128,12 @@
          <children>
             <Pane prefHeight="384.0" prefWidth="670.0">
                <children>
-                  <Label layoutX="269.0" layoutY="143.0" text="Help" textFill="#00f8ff">
+                  <Label fx:id="IDLabelInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" prefHeight="328.0" prefWidth="670.0" text="Help" textFill="#00f8ff">
                      <font>
-                        <Font size="64.0" />
+                        <Font size="13.0" />
                      </font>
                   </Label>
+                  <Button layoutX="236.0" layoutY="339.0" mnemonicParsing="false" onAction="#IDBtnConfirmeHelp" prefHeight="25.0" prefWidth="199.0" stylesheets="@../Css/style.css" text="see the information" textFill="#00f8ff" />
                </children></Pane>
          </children>
       </VBox>
