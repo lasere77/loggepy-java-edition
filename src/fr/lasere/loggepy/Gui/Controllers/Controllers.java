@@ -37,6 +37,9 @@ public class Controllers {
 	private String namePassword;
 	private String password;
 	
+	//home
+	@FXML
+	private Label version;
 	//generated password
 	@FXML
 	private TextField IDEntryGeneratedPassword;
@@ -168,5 +171,5 @@ public class Controllers {
 		scene = new Scene(gui);
 		stage.setScene(scene);
 		stage.show();
-	}
+		}
 }
