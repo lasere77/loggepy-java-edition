@@ -15,16 +15,17 @@ public class GeneratedPassword {
 	private LogWriting lw = new LogWriting();
 	private Random random = new Random();
 	
-	private final Path passwordFile = Paths.get("src/fr/lasere/loggepy/Passwords/passwords");	
+	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
 	private String password;
 	private String fragmentePassword = "";
 	
 	public String GeneratedPasswords(String namePassword) throws IOException {
+		String result = namePassword + "=" + setPassword();
 		String fullPassword = "\n" + namePassword + "=" + setPassword();
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
-		return fullPassword;
+		return result;
 	}
 	
 	private String setPassword() throws IOException {

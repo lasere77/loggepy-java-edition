@@ -15,7 +15,7 @@ public class GetPassword {
 	public String GetPasswords() throws IOException {
 		lw.WriteLogInfo("the user viewed these passwords");
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/fr/lasere/loggepy/Passwords/passwords"), "UTF-8"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
 			allPasswords += line + "\n";

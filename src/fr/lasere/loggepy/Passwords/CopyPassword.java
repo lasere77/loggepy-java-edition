@@ -20,7 +20,7 @@ public class CopyPassword {
 		
 		namePasswors += "=";
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/fr/lasere/loggepy/Passwords/passwords"), "UTF-8"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
 			if(line.contains(namePasswors)) {

@@ -125,7 +125,7 @@ public class Controllers {
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryGeneratedPassword.getText();
-		checkIfArgAsPut(IDLabelConfirme, "your password has been saved:" , generatedPassword.GeneratedPasswords(namePassword));
+		checkIfArgAsPut(IDLabelConfirme, "your password has been saved: " , generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
@@ -133,7 +133,7 @@ public class Controllers {
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
 		password = IDEntryAddPasswordPassword.getText();
-		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved:", addPassword.AddPasswords(namePassword, password));
+		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved: ", addPassword.AddPasswords(namePassword, password));
 	}
 	public void btnConfirmeCopy(ActionEvent e) throws IOException {
 		namePassword = IDEntryCopy.getText();
@@ -152,7 +152,7 @@ public class Controllers {
 		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
 	//in development
-	public void btnConfirmeUpdate(ActionEvent e) {
+	public void btnConfirmeUpdate(ActionEvent e) throws IOException {
 		new Update().Updates();
 		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");
 	}
@@ -166,7 +166,7 @@ public class Controllers {
 	}
 	
 	private void setScene(ActionEvent e, String file) throws IOException {
-		Parent gui = FXMLLoader.load(getClass().getResource("../Fxml/" + file));
+		Parent gui = FXMLLoader.load(getClass().getResource("Fxml/" + file));
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(gui);
 		stage.setScene(scene);

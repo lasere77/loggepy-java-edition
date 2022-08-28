@@ -18,8 +18,8 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Button layoutX="321.0" layoutY="91.0" mnemonicParsing="false" onAction="#btnLaunch" prefHeight="25.0" prefWidth="234.0" stylesheets="@../Css/style.css" text="launch" textFill="#00f8ff" />
-                  <Button layoutX="369.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="25.0" prefWidth="137.0" stylesheets="@../Css/style.css" text="exit" textFill="#00f8ff" />
+                  <Button layoutX="321.0" layoutY="91.0" mnemonicParsing="false" onAction="#btnLaunch" prefHeight="25.0" prefWidth="234.0" stylesheets="@../../Css/style.css" text="launch" textFill="#00f8ff" />
+                  <Button layoutX="369.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="25.0" prefWidth="137.0" stylesheets="@../../Css/style.css" text="exit" textFill="#00f8ff" />
                </children>
             </Pane>
          </children>

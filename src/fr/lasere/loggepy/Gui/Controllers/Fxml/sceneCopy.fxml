@@ -23,7 +23,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="Home" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGeneratedPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="generated password" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -31,7 +31,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGetPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="get password" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGetPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="get password" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -39,7 +39,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnAddPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="add password" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnAddPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="add password" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -47,7 +47,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnCopy" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="copy " textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="home" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -55,7 +55,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnRepair" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="repair" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnRepair" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="repair" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -63,7 +63,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHelp" prefHeight="41.0" prefWidth="211.0" stylesheets="@../Css/style.css" text="Help" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnHelp" prefHeight="41.0" prefWidth="211.0" stylesheets="@../../Css/style.css" text="help" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -71,7 +71,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnDelPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="del password" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnDelPassword" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="del password" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -79,7 +79,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGetUpdate" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="get update" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnGetUpdate" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="get update" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -87,7 +87,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="41.0" prefWidth="209.0" stylesheets="@../Css/style.css" text="exit" textFill="#00f8ff">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="41.0" prefWidth="209.0" stylesheets="@../../Css/style.css" text="exit" textFill="#00f8ff">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -114,7 +114,7 @@
          <children>
             <Pane prefHeight="153.0" prefWidth="670.0" style="-fx-background-color: #083def; -fx-background-radius: 50 50 50 50;">
                <children>
-                  <Label layoutX="14.0" layoutY="35.0" text="/Generated password" textFill="#00f8ff">
+                  <Label layoutX="14.0" layoutY="35.0" text="/Copy" textFill="#00f8ff">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -129,14 +129,14 @@
          <children>
             <Pane prefHeight="402.0" prefWidth="670.0">
                <children>
-                  <Label layoutX="116.0" layoutY="85.0" text="thank you for putting the name of your future password" textFill="#00f8ff">
+                  <Label layoutX="120.0" layoutY="115.0" text="please put the name of the password you want to copy" textFill="#00f8ff">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="IDBtnConfirmeGeneratPassword" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeGeneratPassword" prefHeight="25.0" prefWidth="149.0" stylesheets="@../Css/style.css" text="generate" textFill="#00f8ff" />
-                  <TextField fx:id="IDEntryGeneratedPassword" layoutX="261.0" layoutY="153.0" stylesheets="@../Css/style.css" />
-                  <Label fx:id="IDLabelConfirme" alignment="CENTER" layoutX="3.0" layoutY="230.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
+                  <Button fx:id="IDBtnConfirmeCopy" layoutX="260.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnConfirmeCopy" prefHeight="25.0" prefWidth="149.0" stylesheets="@../../Css/style.css" text="confirme" textFill="#00f8ff" />
+                  <TextField fx:id="IDEntryCopy" layoutX="261.0" layoutY="153.0" stylesheets="@../Css/style.css" />
+                  <Label fx:id="IDLabelConfirmeCopy" alignment="CENTER" layoutX="3.0" layoutY="230.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="670.0" textFill="#00f8ff" />
                </children></Pane>
          </children>
       </VBox>

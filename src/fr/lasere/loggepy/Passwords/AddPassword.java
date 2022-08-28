@@ -11,13 +11,14 @@ import fr.lasere.loggepy.Log.LogWriting;
 public class AddPassword {
 	
 	private LogWriting lw = new LogWriting();
-	private final Path passwordFile = Paths.get("src/fr/lasere/loggepy/Passwords/passwords");	
+	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
 	public String AddPasswords(String namePassword, String password) throws IOException {
 		lw.WriteLogInfo("your password has just been added");
-		String fullPassword = namePassword + "=" + password + "\n";
+		String result = namePassword + "=" + password;
+		String fullPassword =  "\n" + namePassword + "=" + password;
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
-		return fullPassword;
+		return result;
 	}
 }

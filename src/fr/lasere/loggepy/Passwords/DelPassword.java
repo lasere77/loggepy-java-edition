@@ -10,7 +10,7 @@ import fr.lasere.loggepy.Log.LogWriting;
 public class DelPassword {
 	
 	private LogWriting lw = new LogWriting();
-	private File passwordFile = new File("src/fr/lasere/loggepy/Passwords/passwords");
+	private File passwordFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
 	
 	private String fullPassword;
 	private String allPassword;
