@@ -12,7 +12,7 @@ public class Repair {
 	private LogWriting lw = new LogWriting();
 	
 	public void Repaired() throws IOException {
-		Files.copy(Loggepy.backupPasswordsFile, Loggepy.passwordsFile, StandardCopyOption.REPLACE_EXISTING);
+		Files.copy(Loggepy.backupPasswordsFile, Loggepy.passwordsFile,  StandardCopyOption.REPLACE_EXISTING);
 		lw.WriteLogInfo("we have tried to restore the password");
 	}
 	public void setBackup() throws IOException {

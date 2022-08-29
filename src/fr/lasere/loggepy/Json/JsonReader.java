@@ -18,12 +18,12 @@ public class JsonReader {
 	private static String error = "there was a problem... you can report it here: https://github.com/lasere77/loggepy-java-edition/issues";
 	
 	@SuppressWarnings("deprecation")
-	public static String ReadData(String arg) throws FileNotFoundException {
+	public static int ReadData(String arg) throws FileNotFoundException {
 			JsonParser jsonParser = new JsonParser();
 			FileReader reader = new FileReader("src/fr/lasere/loggepy/Json/Data/.json");
 			Object object = jsonParser.parse(reader);
 			JsonObject data = (JsonObject)object;
-			String result = data.get(arg).getAsString();
+			int result = data.get(arg).getAsInt();
 			return result;
 	}
 	

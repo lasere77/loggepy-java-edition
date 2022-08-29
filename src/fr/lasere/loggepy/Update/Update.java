@@ -17,11 +17,11 @@ import fr.lasere.loggepy.Log.LogWriting;
 public class Update {
 	
 	private LogWriting lw = new LogWriting();
-	
+
 	private String userName = System.getProperty("user.home");
-	private final int MAJOR = 3;
-	private final int MINOR = 10;
-	private final int PATCH = 3;
+	private final int MAJOR = 1;
+	private final int MINOR = 0;
+	private final int PATCH = 0;
 	private int getMajor;
 	private int getMinor;
 	private int getPatch;
@@ -31,30 +31,38 @@ public class Update {
 	private ArrayList<String> allPatchNote = new ArrayList<String>();
 	
 	public void Updates() throws IOException, InterruptedException {
-		setupResource();
-		//getUpdate();
+		lw.WriteLogInfo("you are on the version\r\n" + MAJOR + "." + MINOR + "." + PATCH);
+		getUpdate(MAJOR, MINOR, PATCH);
 	}
 	
 	
-	private Boolean getUpdate() throws IOException, InterruptedException{
+	private void getUpdate(int MAJOR, int MINOR, int PATCH) throws IOException, InterruptedException{
 		lw.WriteLogInfo("checking is updated");
-		Document doc = Jsoup.connect(URL).get();
-		Elements versionElements = doc.getElementsByTag("h1");
-		Elements textElements = doc.getElementsByTag("p");
-		for(Element versionElement : versionElements) {
-			allVersion.add(versionElement.text());
+		try {
+			Document doc = Jsoup.connect(URL).get();
+			Elements versionElements = doc.getElementsByTag("h1");
+			Elements textElements = doc.getElementsByTag("p");
+			for(Element versionElement : versionElements) {
+				allVersion.add(versionElement.text());
+			}
+			for(Element textElement : textElements) {
+				allPatchNote.add(textElement.text());
+			}
+			getMajor = Character.getNumericValue(allVersion.get(0).charAt(0));
+			getMinor = Character.getNumericValue(allVersion.get(0).charAt(2));
+			getPatch = Character.getNumericValue(allVersion.get(0).charAt(4));
+			System.out.println(getMajor + " " + getMinor + " " + getPatch);
+			if(getMajor > MAJOR || getMinor > MINOR || getPatch > PATCH){
+				lw.WriteLogInfo("update");
+				addResource();
+			}else if(getMajor == MAJOR || getMinor == MINOR || getPatch == PATCH) {
+				lw.WriteLogInfo("you have the latest version of loggepy edition java");
+			}else {
+				lw.WriteLogInfo("...");
+			}
+		} catch (Exception e) {
+			lw.WriteLogInfo(e.getMessage());
 		}
-		for(Element textElement : textElements) {
-			allPatchNote.add(textElement.text());
-		}
-		getMajor = Character.getNumericValue(allVersion.get(0).charAt(0));
-		getMinor = Character.getNumericValue(allVersion.get(0).charAt(2));
-		getPatch = Character.getNumericValue(allVersion.get(0).charAt(4));
-		System.out.println(getMajor + " " + getMinor + " " + getPatch);
-		if(getMajor > MAJOR || getMinor < MINOR || getPatch < PATCH){
-			addResource();
-		}
-		return false;
 	}
 	
 	private void addResource() throws IOException, InterruptedException {
@@ -65,7 +73,7 @@ public class Update {
         try (FileOutputStream fos = new FileOutputStream("C:\\Windows\\Temp\\loggepy.3.10.3.zip")) {
             fos.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
         }
-        setupResource();
+		setupResource();
 	}
 	
 	private void setupResource() throws InterruptedException, IOException {

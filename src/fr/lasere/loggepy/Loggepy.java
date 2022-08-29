@@ -19,18 +19,15 @@ public class Loggepy extends Application {
 	private static LogWriting lw = new LogWriting();
 	private static File folderPassword = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup");
 	private static File folderlog = new File("C:\\Program Files (x86)\\loggepy-edition-java\\log");
+	private static File logFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\log\\log");
+	private static File passwordFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup");
 	public static final Path passwordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
 	public static final Path backupPasswordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup\\backupPassword");
 	
 	
 	public static void main(String[] args) throws IOException {	
 		lw.WriteLogInfo("the launch of the application");
-		if(!folderPassword.exists()) {
-			folderPassword.mkdirs();
-		}
-		if(!folderlog.exists()) {
-			folderlog.mkdirs();
-		}
+		setFile();
 		launch(args);
 	}
 
@@ -47,5 +44,20 @@ public class Loggepy extends Application {
 		
 		stage.setScene(scene);
 		stage.show();
-	}	
+	}
+	
+	private static void setFile() throws IOException {
+		if(!folderPassword.exists()) {
+			folderPassword.mkdirs();
+		}
+		if(!folderlog.exists()) {
+			folderlog.mkdirs();
+		}
+		if (!logFile.exists()) {
+			logFile.createNewFile();
+		}
+		if (!passwordFile.exists()) {
+			passwordFile.createNewFile();
+		}
+	}
 }

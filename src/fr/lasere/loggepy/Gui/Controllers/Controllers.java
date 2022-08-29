@@ -153,8 +153,9 @@ public class Controllers {
 	}
 	//in development
 	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
+		IDLabelConfirmeUpdate.setText("please wait...");
 		new Update().Updates();
-		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");
+		IDLabelConfirmeUpdate.setText("Thanks for waiting");
 	}
 	
 	private void checkIfArgAsPut(Label iDLabel, String text, Object action) throws IOException {
