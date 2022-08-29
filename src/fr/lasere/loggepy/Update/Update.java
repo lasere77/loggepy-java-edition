@@ -12,12 +12,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import net.lingala.zip4j.ZipFile;
-import net.lingala.zip4j.exception.ZipException;
+import fr.lasere.loggepy.Log.LogWriting;
 
 public class Update {
 	
-	@SuppressWarnings("unused")
+	private LogWriting lw = new LogWriting();
+	
 	private String userName = System.getProperty("user.home");
 	private final int MAJOR = 3;
 	private final int MINOR = 10;
@@ -26,55 +26,53 @@ public class Update {
 	private int getMinor;
 	private int getPatch;
 	private final String URL = "https://github.com/lasere77/loggepy-java-edition/releases";
-	//private final String URL = "https://github.com/lasere77/loggepy/releases";
 	
 	private ArrayList<String> allVersion = new ArrayList<String>();
 	private ArrayList<String> allPatchNote = new ArrayList<String>();
 	
-	public void Updates() throws IOException {
-		getUpdate();
+	public void Updates() throws IOException, InterruptedException {
+		setupResource();
+		//getUpdate();
 	}
 	
 	
-	private Boolean getUpdate() throws IOException{
-			Document doc = Jsoup.connect(URL).get();
-			Elements versionElements = doc.getElementsByTag("h1");
-			Elements textElements = doc.getElementsByTag("p");
-			for(Element versionElement : versionElements) {
-				allVersion.add(versionElement.text());
-			}
-			for(Element textElement : textElements) {
-				allPatchNote.add(textElement.text());
-			}
-			getMajor = Character.getNumericValue(allVersion.get(0).charAt(0));
-			getMinor = Character.getNumericValue(allVersion.get(0).charAt(2));
-			getPatch = Character.getNumericValue(allVersion.get(0).charAt(4));
-			System.out.println(getMajor + " " + getMinor + " " + getPatch);
-			if(getMajor > MAJOR || getMinor < MINOR || getPatch < PATCH){
-				addResource();
-			}
+	private Boolean getUpdate() throws IOException, InterruptedException{
+		lw.WriteLogInfo("checking is updated");
+		Document doc = Jsoup.connect(URL).get();
+		Elements versionElements = doc.getElementsByTag("h1");
+		Elements textElements = doc.getElementsByTag("p");
+		for(Element versionElement : versionElements) {
+			allVersion.add(versionElement.text());
+		}
+		for(Element textElement : textElements) {
+			allPatchNote.add(textElement.text());
+		}
+		getMajor = Character.getNumericValue(allVersion.get(0).charAt(0));
+		getMinor = Character.getNumericValue(allVersion.get(0).charAt(2));
+		getPatch = Character.getNumericValue(allVersion.get(0).charAt(4));
+		System.out.println(getMajor + " " + getMinor + " " + getPatch);
+		if(getMajor > MAJOR || getMinor < MINOR || getPatch < PATCH){
+			addResource();
+		}
 		return false;
 	}
 	
-	@SuppressWarnings("resource")
-	private void addResource() throws IOException {
+	private void addResource() throws IOException, InterruptedException {
 		//resource download
-		URL FileZipUrl = new URL("https://github.com/lasere77/loggepy/releases/download/+allVersion.get(0)+/loggepy-edition-java-update.+allVersion.get(0)+.zip");
+		lw.WriteLogInfo("resource download");
+		URL FileZipUrl = new URL("https://github.com/lasere77/loggepy/releases/download/" + allVersion.get(0) + "/loggepy-edition-java-update." + allVersion.get(0) + ".zip");
         ReadableByteChannel readableByteChannel = Channels.newChannel(FileZipUrl.openStream());
         try (FileOutputStream fos = new FileOutputStream("C:\\Windows\\Temp\\loggepy.3.10.3.zip")) {
             fos.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
         }
-		
-        //unzipping the zip file
-	    try {
-	         new ZipFile("C:\\Windows\\Temp\\loggepy.3.10.3.zip").extractAll("C:\\Users\\laser\\Desktop\\att");
-	    } catch (ZipException e) {
-	        e.printStackTrace();
-	    }
-	    setupResource();
+        setupResource();
 	}
 	
-	private void setupResource() {
-		
+	private void setupResource() throws InterruptedException, IOException {
+		lw.WriteLogInfo("resource installation");
+		String cmd = userName + "\\AppData\\Roaming\\loggepy-edition-java\\setupdate.bat";
+		Runtime t = Runtime.getRuntime();
+		Process y = t.exec(cmd);
+		y.waitFor();
 	}
 }

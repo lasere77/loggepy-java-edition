@@ -152,7 +152,7 @@ public class Controllers {
 		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
 	//in development
-	public void btnConfirmeUpdate(ActionEvent e) throws IOException {
+	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
 		new Update().Updates();
 		IDLabelConfirmeUpdate.setText("the update was done successfully (this information is fake)");
 	}
