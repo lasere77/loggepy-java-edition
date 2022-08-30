@@ -7,12 +7,13 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Random;
 
+import fr.lasere.loggepy.Backup.Repair;
 import fr.lasere.loggepy.Log.LogWriting;
 
 public class GeneratedPassword {
 	
-	
 	private LogWriting lw = new LogWriting();
+	private Repair repair = new Repair();
 	private Random random = new Random();
 	
 	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
@@ -25,6 +26,7 @@ public class GeneratedPassword {
 		String fullPassword = "\n" + namePassword + "=" + setPassword();
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
+		repair.setBackup();
 		return result;
 	}
 	

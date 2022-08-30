@@ -151,7 +151,6 @@ public class Controllers {
 		password = IDEntryDelPassword.getText();
 		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
-	//in development
 	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
 		IDLabelConfirmeUpdate.setText("please wait...");
 		new Update().Updates();
