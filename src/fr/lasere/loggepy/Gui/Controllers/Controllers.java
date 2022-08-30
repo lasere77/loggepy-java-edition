@@ -1,6 +1,9 @@
 package fr.lasere.loggepy.Gui.Controllers;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import fr.lasere.loggepy.Backup.Repair;
 import fr.lasere.loggepy.Log.LogWriting;
@@ -143,8 +146,10 @@ public class Controllers {
 		repair.Repaired();
 		IDLabelConfirmeRepair.setText("we have tried to restore the password");
 	}
-	public void IDBtnConfirmeHelp(ActionEvent e) {
-		//IDLabelInfo.setText("generated password: in this scene you will have to put in the first textFied the name of your password (what it is responsible for) \nand you will only have to press the button to validate and generate your password");
+	public void IDBtnConfirmeHelp(ActionEvent e) throws IOException, URISyntaxException {
+		Desktop desktop = Desktop.getDesktop();
+		desktop.browse(new URI("https://lasere77.github.io/loggepy-web/loggepy-edition-java/help.html"));
+		IDLabelInfo.setText("please check your internet connection if the page does not want to launch.");
 	}
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
