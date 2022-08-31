@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.Random;
 
 import fr.lasere.loggepy.Backup.Repair;
+import fr.lasere.loggepy.GetError.SameName;
 import fr.lasere.loggepy.Log.LogWriting;
 
 public class GeneratedPassword {
@@ -15,6 +16,7 @@ public class GeneratedPassword {
 	private LogWriting lw = new LogWriting();
 	private Repair repair = new Repair();
 	private Random random = new Random();
+	private SameName sameName = new SameName();
 	
 	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
@@ -22,12 +24,19 @@ public class GeneratedPassword {
 	private String fragmentePassword = "";
 	
 	public String GeneratedPasswords(String namePassword) throws IOException {
+		if(namePassword == "") {
+			return "please put argument";
+		}else if (namePassword.contains("=")) {
+			return "please do not put the sign '='";
+		}else if (sameName.hasSameName(namePassword)) {
+			return "you already have a password with the same name...";
+		}
 		String result = namePassword + "=" + setPassword();
 		String fullPassword = "\n" + namePassword + "=" + setPassword();
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
 		repair.setBackup();
-		return result;
+		return "your password has been saved: " + result;
 	}
 	
 	private String setPassword() throws IOException {

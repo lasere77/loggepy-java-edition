@@ -16,10 +16,10 @@ public class CopyPassword {
 	private String passwords = "";
 	
 	public String CopyPasswords(String namePasswors) throws IOException {
-		lw.WriteLogInfo("the user has copy one of c is password");
-		
+		if (namePasswors == "") {
+			return "please put argument";
+		}
 		namePasswors += "=";
-		
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
@@ -32,6 +32,7 @@ public class CopyPassword {
 			line = br.readLine();
 		}
 		br.close();
-		return passwords;
+		lw.WriteLogInfo("the user has a copy of their password");
+		return "your password has been copied: " + passwords;
 	}
 }

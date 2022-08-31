@@ -14,27 +14,31 @@ public class DelPassword {
 	
 	private String fullPassword;
 	private String allPassword;
+	private String result;
 	
 	/*
 	 * You still need to remove unnecessary line breaks.
 	 */
-	public String getDelPassword(String namePassword, String password, String oldPassword2) throws IOException {
-		fullPassword = namePassword + "=" + password;
+	public String getDelPassword(String namePassword, String password, String oldPassword) throws IOException {
+		if(namePassword == "" || password == "") {
+			return "please put argument";
+		}
+		result = namePassword + "=" + password;
+		fullPassword = "\n" + namePassword + "=" + password;
 		if(!passwordFile.exists()) {
 			try {
 				passwordFile.createNewFile();
 			} catch (Exception e) {
 				lw.WriteLogFatal("the password file did not succeed in this creation please report the bug thank you for your understanding");
-				e.getMessage();
+				return "you don't have a password...";
 			}
-		}else {
-			FileWriter fw = new FileWriter(passwordFile);
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(delPassword(fullPassword, oldPassword2));
-			bw.close();
-			fw.close();
 		}
-		return fullPassword;
+		FileWriter fw = new FileWriter(passwordFile);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(delPassword(fullPassword, oldPassword));
+		bw.close();
+		fw.close();
+		return "your password has been deleted: " + result;
 	}
 	
 	private String delPassword(String fullPassword, String oldPassword) throws IOException {

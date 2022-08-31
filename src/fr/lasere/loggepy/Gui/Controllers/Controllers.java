@@ -77,7 +77,7 @@ public class Controllers {
 	private Label IDLabelInfo;
 	
 	
-	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later) and to change the language of the application 
+	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later)
 		setScene(e, "sceneHome.fxml");
 	}
 	
@@ -128,7 +128,7 @@ public class Controllers {
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryGeneratedPassword.getText();
-		checkIfArgAsPut(IDLabelConfirme, "your password has been saved: " , generatedPassword.GeneratedPasswords(namePassword));
+		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
@@ -136,11 +136,11 @@ public class Controllers {
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
 		password = IDEntryAddPasswordPassword.getText();
-		checkIfArgAsPut(IDLabelConfirmeAddPassword, "your password has been saved: ", addPassword.AddPasswords(namePassword, password));
+		IDLabelConfirmeAddPassword.setText(addPassword.AddPasswords(namePassword, password));
 	}
 	public void btnConfirmeCopy(ActionEvent e) throws IOException {
 		namePassword = IDEntryCopy.getText();
-		checkIfArgAsPut(IDLabelConfirmeCopy, "your password has been copied: ", copyPassword.CopyPasswords(namePassword));
+		IDLabelConfirmeCopy.setText(copyPassword.CopyPasswords(namePassword));
 	}
 	public void btnConfirmeRepair(ActionEvent e) throws IOException {
 		repair.Repaired();
@@ -154,20 +154,12 @@ public class Controllers {
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
-		checkIfArgAsPut(IDLabelConfirmeDelPassword, "your password has been deleted: ", delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
+		IDLabelConfirmeDelPassword.setText(delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
 		IDLabelConfirmeUpdate.setText("please wait...");
 		new Update().Updates();
 		IDLabelConfirmeUpdate.setText("Thanks for waiting");
-	}
-	
-	private void checkIfArgAsPut(Label iDLabel, String text, Object action) throws IOException {
-		if(namePassword == null || namePassword == "") {
-			iDLabel.setText("please put argument");
-		}else {
-			iDLabel.setText(text + action);
-		}
 	}
 	
 	private void setScene(ActionEvent e, String file) throws IOException {
@@ -176,5 +168,5 @@ public class Controllers {
 		scene = new Scene(gui);
 		stage.setScene(scene);
 		stage.show();
-		}
+	}
 }
