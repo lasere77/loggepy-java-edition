@@ -31,7 +31,6 @@ public class Controllers {
 	private AddPassword addPassword = new AddPassword();
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
-	private GetPassword oldPassword = new GetPassword();
 	private CopyPassword copyPassword = new CopyPassword();
 	
 	private Stage stage;
@@ -154,7 +153,7 @@ public class Controllers {
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
-		IDLabelConfirmeDelPassword.setText(delPassword.getDelPassword(namePassword, password, oldPassword.GetPasswords()));
+		IDLabelConfirmeDelPassword.setText(delPassword.delPassword(namePassword, password));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
 		IDLabelConfirmeUpdate.setText("please wait...");

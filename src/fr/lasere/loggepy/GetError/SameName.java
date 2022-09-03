@@ -13,7 +13,7 @@ public class SameName {
 	
 	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
-	public boolean hasSameName(String namePasswors /*le nom du mot de passe a vérifier*/) throws IOException {
+	public boolean hasSameName(String namePasswors) throws IOException {
 		Files.write(passwordFile, "".getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords"), "UTF-8"));

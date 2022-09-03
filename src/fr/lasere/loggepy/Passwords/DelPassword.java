@@ -1,70 +1,42 @@
 package fr.lasere.loggepy.Passwords;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 import fr.lasere.loggepy.Log.LogWriting;
 
 public class DelPassword {
 	
 	private LogWriting lw = new LogWriting();
-	private File passwordFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
+	private static final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
 	private String fullPassword;
-	private String allPassword;
-	private String result;
+	private String allPassword = "";
 	
-	public String getDelPassword(String namePassword, String password, String oldPassword) throws IOException {
+	public String delPassword(String namePassword, String password) throws IOException {
 		if(namePassword == "" || password == "") {
 			return "please put argument";
 		}
-		result = namePassword + "=" + password;
-		if(!passwordFile.exists()) {
-			try {
-				passwordFile.createNewFile();
-			} catch (Exception e) {
-				lw.WriteLogFatal("the password file did not succeed in this creation please report the bug thank you for your understanding");
-				return "you don't have a password...";
+		fullPassword = namePassword + "=" + password;
+		Files.write(passwordFile, getDelPassword(fullPassword).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+		lw.WriteLogInfo("the user has deleted one of its password");
+		return "your password has been deleted: " + fullPassword;
+	}
+	
+	private String getDelPassword(String fullPassword) throws IOException {
+		List<String> passwordArray = Files.readAllLines(passwordFile);
+		for(int i = 0; i != passwordArray.size(); i++) {
+			if (passwordArray.get(i).equals(fullPassword)) {
+				passwordArray.remove(i);
+			}
+			if (passwordArray.get(i) != passwordArray.get(0)) {
+				allPassword += "\n" + passwordArray.get(i);
 			}
 		}
-		//String str1 = new Boolean(lastLine(namePassword, password)).toString();
-		//lw.WriteLogInfo(str1);
-		if(lastLine(namePassword, password)) {
-			fullPassword = "\n" + namePassword + "=" + password + "\n";
-		}else {
-			fullPassword = "\n" + namePassword + "=" + password;
-		}
-		FileWriter fw = new FileWriter(passwordFile);
-		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write(delPassword(fullPassword, oldPassword));
-		bw.close();
-		fw.close();
-		return "your password has been deleted: " + result;
-	}
-	
-	private String delPassword(String fullPassword, String oldPassword) throws IOException {
-		allPassword = oldPassword.replaceAll(fullPassword, "");
 		return allPassword;
-	}
-	
-	@SuppressWarnings("resource")
-	private boolean lastLine(String namePassword, String password) throws IOException {
-		String path = "C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords";
-		File file = new File(path);
-		Scanner sc = new Scanner(file);
-		String line = "";
-		while(sc.hasNextLine()) {
-			line = sc.nextLine();
-		}
-		lw.WriteLogInfo(line);
-		String temp = namePassword + "=" + password;
-		//Why does this condition not work?
-		if(line == temp || line == "\n" + temp || line == temp + "\n") {
-			return true;
-		}
-		return false;
 	}
 }

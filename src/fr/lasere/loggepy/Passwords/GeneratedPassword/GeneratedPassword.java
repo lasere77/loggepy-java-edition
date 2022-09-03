@@ -15,8 +15,8 @@ public class GeneratedPassword {
 	
 	private LogWriting lw = new LogWriting();
 	private Repair repair = new Repair();
-	private Random random = new Random();
 	private SameName sameName = new SameName();
+	private Random random = new Random();
 	
 	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
 	
