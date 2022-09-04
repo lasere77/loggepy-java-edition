@@ -23,6 +23,9 @@ public class Loggepy extends Application {
 	private static File passwordFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup");
 	public static final Path passwordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
 	public static final Path backupPasswordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup\\backupPassword");
+	//for dev on eclipse
+	//public static final Path passwordsFile = Paths.get("passwords");
+	//public static final Path backupPasswordsFile = Paths.get("backupPassword");
 	
 	
 	public static void main(String[] args) throws IOException {	
@@ -45,7 +48,6 @@ public class Loggepy extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
 	private static void setFile() throws IOException {
 		if(!folderPassword.exists()) {
 			folderPassword.mkdirs();

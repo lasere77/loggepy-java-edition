@@ -11,7 +11,7 @@ import java.nio.file.StandardOpenOption;
 
 public class SameName {
 	
-	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
+	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
 	
 	public boolean hasSameName(String namePasswors) throws IOException {
 		Files.write(passwordFile, "".getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
