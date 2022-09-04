@@ -18,7 +18,6 @@ public class Update {
 	
 	private LogWriting lw = new LogWriting();
 
-	private String userName = System.getProperty("user.home");
 	private final int MAJOR = 1;
 	private final int MINOR = 0;
 	private final int PATCH = 0;
@@ -78,7 +77,7 @@ public class Update {
 	
 	private void setupResource() throws InterruptedException, IOException {
 		lw.WriteLogInfo("resource installation");
-		String cmd = userName + "\\AppData\\Roaming\\loggepy-edition-java\\setupdate.bat";
+		String cmd = "C:\\Program Files (x86)\\loggepy-edition-java\\setupdate.bat";
 		Runtime t = Runtime.getRuntime();
 		Process y = t.exec(cmd);
 		y.waitFor();
