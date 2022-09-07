@@ -11,7 +11,7 @@ import fr.lasere.loggepy.Log.LogWriting;
 public class DelPassword {
 	
 	private LogWriting lw = new LogWriting();
-	private static final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");	
+	private static final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
 	//private static final Path passwordFile = Paths.get("passwords");	
 	
 	private String fullPassword;
@@ -34,8 +34,6 @@ public class DelPassword {
 		List<String> passwordArray = Files.readAllLines(passwordFile);
 		lengthPasswordArray = passwordArray.size();
 		for(int i = 0; i < lengthPasswordArray; i++) {
-			lw.WriteLogInfo("c est la " + i +  " boucle");
-			lw.WriteLogInfo("il y a " + lengthPasswordArray + " de boucle possible");
 			try {
 				if (passwordArray.get(i).equals(fullPassword)) {
 					passwordArray.remove(i);

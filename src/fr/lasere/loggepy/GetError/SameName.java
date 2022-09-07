@@ -11,12 +11,12 @@ import java.nio.file.StandardOpenOption;
 
 public class SameName {
 	
-	private final Path passwordFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
+	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");
 	
 	public boolean hasSameName(String namePasswors) throws IOException {
 		Files.write(passwordFile, "".getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		@SuppressWarnings("resource")
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		namePasswors += "=";
 		String line = br.readLine();
 		while (line != null) {

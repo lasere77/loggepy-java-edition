@@ -11,7 +11,7 @@ public class LogWriting {
 	
 	private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	
-	private final Path path = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\log\\log");
+	private final Path path = Paths.get("C:\\loggepy-edition-java\\log\\log");
 	//private final Path path = Paths.get("log");
 	private static String error = "https://github.com/lasere77/loggepy-java-edition/issues";
 	private final String INFO = "INFO -> ";

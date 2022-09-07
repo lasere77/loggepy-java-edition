@@ -67,9 +67,9 @@ public class Update {
 	private void addResource() throws IOException, InterruptedException {
 		//resource download
 		lw.WriteLogInfo("resource download");
-		URL FileZipUrl = new URL("https://github.com/lasere77/loggepy/releases/download/" + allVersion.get(0) + "/loggepy-edition-java-update." + allVersion.get(0) + ".zip");
+		URL FileZipUrl = new URL("https://github.com/lasere77/loggepy/releases/download/" + allVersion.get(0) + "/loggepy.exe");
         ReadableByteChannel readableByteChannel = Channels.newChannel(FileZipUrl.openStream());
-        try (FileOutputStream fos = new FileOutputStream("C:\\Windows\\Temp\\loggepy.3.10.3.zip")) {
+        try (FileOutputStream fos = new FileOutputStream("C:\\Windows\\Temp\\loggepy.exe")) {
             fos.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
         }
 		setupResource();
@@ -77,7 +77,7 @@ public class Update {
 	
 	private void setupResource() throws InterruptedException, IOException {
 		lw.WriteLogInfo("resource installation");
-		String cmd = "C:\\Program Files (x86)\\loggepy-edition-java\\setupdate.bat";
+		String cmd = "C:\\loggepy-edition-java\\setupdate.bat";
 		Runtime t = Runtime.getRuntime();
 		Process y = t.exec(cmd);
 		y.waitFor();

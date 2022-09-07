@@ -17,12 +17,12 @@ import javafx.stage.Stage;
 public class Loggepy extends Application {	
 	
 	private static LogWriting lw = new LogWriting();
-	private static File folderPassword = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup");
-	private static File folderlog = new File("C:\\Program Files (x86)\\loggepy-edition-java\\log");
-	private static File logFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\log\\log");
-	private static File passwordFile = new File("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup");
-	public static final Path passwordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\passwords");
-	public static final Path backupPasswordsFile = Paths.get("C:\\Program Files (x86)\\loggepy-edition-java\\password\\backup\\backupPassword");
+	private static File folderPassword = new File("C:\\loggepy-edition-java\\password\\backup");
+	private static File folderlog = new File("C:\\loggepy-edition-java\\log");
+	private static File logFile = new File("C:\\loggepy-edition-java\\log\\log");
+	private static File passwordFile = new File("C:\\loggepy-edition-java\\password\\backup");
+	public static final Path passwordsFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");
+	public static final Path backupPasswordsFile = Paths.get("C:\\loggepy-edition-java\\password\\backup\\backupPassword");
 	//for dev on eclipse
 	//public static final Path passwordsFile = Paths.get("passwords");
 	//public static final Path backupPasswordsFile = Paths.get("backupPassword");
