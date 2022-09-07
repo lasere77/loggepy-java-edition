@@ -22,7 +22,7 @@ made by lasere77
 **the jar was compiled into an exe using:** 
 👉 [**launch4j**](http://launch4j.sourceforge.net/)
 in the configuration of the exe there is the location of java(18.0.2 jdk)
-the jvm arguments for javafx which are: --module-path" C:\Program Files (x86)\loggepy-edition-java\javafx -sdk-18.0.1\lib" --add-modules javafx.controls,javafx.fxml
+the jvm arguments for javafx which are: --module-path "C:\loggepy-edition-java\javafx-sdk-18.0.1\lib" --add-modules javafx.controls,javafx.fxml
 
 **and the installer was made with inno setup**
 👉 [**inno setup**](https://jrsoftware.org/isinfo.php)
