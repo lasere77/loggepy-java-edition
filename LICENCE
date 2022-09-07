@@ -10,6 +10,14 @@ You can find more information about this license at:
 Wrapper by launch4j You will find more information about this safe software:
 	
 	https://github.com/fbergmann/launch4j
+	
+Used libraries:
+
+	javafx: https://github.com/openjdk/jfx
+
+	gson: https://github.com/google/gson
+
+	jsoup: https://github.com/jhy/jsoup
 
 The entire code of this application is available at the following address:
 

@@ -12,7 +12,7 @@ but as this password will be very long to copy loggepy to a scene to directly co
 
 made by lasere77 
 
-### Used libraries and other 3rd party code
+### Used libraries
 - [javafx](https://github.com/openjdk/jfx)
 - [gson](https://github.com/google/gson)
 - [jsoup](https://github.com/jhy/jsoup)
@@ -32,10 +32,11 @@ All it's stoker sound file in the same place in "C:\Program Files (x86)\loggepy-
 
 ## update
 in the future update (1.1.1) the file encryption system containing the passwords will be implemented, so you will have to enter your password to be able to access loggepy.
-plus fix on same name error
+more corrective on the error same name
 ---
 
 ## launch
 to launch loggepy you just need to install the installer:
+⚠️attention it will be necessary to install the setup loggepy-edition-java and not the executable loggepy this one is the resource for the system of updates⚠️
 [**Releases**](https://github.com/lasere77/loggepy-java-edition/releases)
 you just need to run it. It is possible that it is detected as a virus on your computer because it has no signature which is not serious,then you proceed with the installation and once the installation is finished make sure you have launched it loggepy as administrator otherwise the application will not launch.
