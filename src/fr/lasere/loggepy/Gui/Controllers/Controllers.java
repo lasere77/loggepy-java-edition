@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import fr.lasere.loggepy.Backup.Repair;
+import fr.lasere.loggepy.Encryption.Deciphers;
 import fr.lasere.loggepy.Log.LogWriting;
 import fr.lasere.loggepy.Passwords.AddPassword;
 import fr.lasere.loggepy.Passwords.CopyPassword;
@@ -32,6 +33,7 @@ public class Controllers {
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
 	private CopyPassword copyPassword = new CopyPassword();
+	private Deciphers deciphers = new Deciphers();
 	
 	private Stage stage;
 	private Scene scene;
@@ -39,6 +41,11 @@ public class Controllers {
 	private String namePassword;
 	private String password;
 	
+	//main
+	@FXML
+	private Label IDLabelErrorMainPassword;
+	@FXML
+	private TextField IDEntryMainPassword;
 	//home
 	@FXML
 	private Label version;
@@ -77,7 +84,9 @@ public class Controllers {
 	
 	
 	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later)
-		setScene(e, "sceneHome.fxml");
+		if (deciphers.decipher(IDEntryMainPassword.getText(), IDLabelErrorMainPassword)) {
+			setScene(e, "sceneHome.fxml");
+		}
 	}
 	
 	
@@ -166,6 +175,10 @@ public class Controllers {
 		stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(gui);
 		stage.setScene(scene);
-		stage.show();
+		stage.show();		
+	}
+	
+	public String getIDEntryMainPassword() {
+		return IDEntryMainPassword.getText();
 	}
 }
