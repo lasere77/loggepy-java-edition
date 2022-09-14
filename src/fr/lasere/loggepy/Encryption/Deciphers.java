@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import fr.lasere.loggepy.Log.LogWriting;
 import javafx.scene.control.Label;
@@ -13,10 +11,6 @@ import javafx.scene.control.Label;
 public class Deciphers {
 	
 	private LogWriting lw = new LogWriting();
-	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");
-	private String currentpasswordLine = "";
-	private String PasswordLineEncrypt = "";
-	private String PasswordEncrypt;
 	private int MainPassword;
 	
 	public boolean decipher(String iDEntryMainPassword, Label IDLabelErrorMainPassword) throws IOException {
@@ -45,8 +39,8 @@ public class Deciphers {
 	}
 	
 	private char cesar(int nb, char input) {
-		char output = '2';
-		while (nb < 26) {
+		char output = ')';
+		while (nb > 26) {
 			nb -= 26;
 		}
 		for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
@@ -62,11 +56,28 @@ public class Deciphers {
 				} catch (Exception e) {
 					output = EncryptionArguments.lowercase[nb];
 				}
-			}else if (input == EncryptionArguments.nb[i]) {
+			}
+		}
+		while (nb > 2) {
+			nb -= 10;
+		}
+		for(int i = 0; i != 10; i++) {
+			if (input == EncryptionArguments.nb[i]) {
 				try {
 					output = (char) EncryptionArguments.nb[i + nb];
 				} catch (Exception e) {
-					output = (char) EncryptionArguments.nb[nb];
+					output = (char) EncryptionArguments.nb[i];
+				}
+			}
+		}
+		for(int i = 0; i != EncryptionArguments.lengthSpecialCharacter; i++) {
+			if(input == '=') {
+				output = '=';
+			}else if (input == EncryptionArguments.specialCharacter[i]) {
+				try {
+					output = EncryptionArguments.specialCharacter[i + nb];
+				} catch (Exception e) {
+					output = EncryptionArguments.specialCharacter[i];
 				}
 			}
 		}
