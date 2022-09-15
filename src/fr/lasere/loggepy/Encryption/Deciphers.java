@@ -40,8 +40,8 @@ public class Deciphers {
 	
 	private char cesar(int nb, char input) {
 		char output = ')';
-		while (nb > 26) {
-			nb -= 26;
+		while (nb >= 26) {
+			nb -= 25;
 		}
 		for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 			if (input == EncryptionArguments.uppercase[i]) {
@@ -58,8 +58,8 @@ public class Deciphers {
 				}
 			}
 		}
-		while (nb > 2) {
-			nb -= 10;
+		while (nb > 10) {
+			nb -= 5;
 		}
 		for(int i = 0; i != 10; i++) {
 			if (input == EncryptionArguments.nb[i]) {
@@ -81,7 +81,7 @@ public class Deciphers {
 				}
 			}
 		}
-		System.out.println(output);
+		//System.out.println(output);
 		return output;
 	}
 }

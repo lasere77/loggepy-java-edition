@@ -23,10 +23,6 @@ public class Loggepy extends Application {
 	private static File passwordFile = new File("C:\\loggepy-edition-java\\password\\backup");
 	public static final Path passwordsFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");
 	public static final Path backupPasswordsFile = Paths.get("C:\\loggepy-edition-java\\password\\backup\\backupPassword");
-	//for dev on eclipse
-	//public static final Path passwordsFile = Paths.get("passwords");
-	//public static final Path backupPasswordsFile = Paths.get("backupPassword");
-	
 	
 	public static void main(String[] args) throws IOException {	
 		lw.WriteLogInfo("the launch of the application");
@@ -40,7 +36,7 @@ public class Loggepy extends Application {
 		Parent gui = FXMLLoader.load(getClass().getResource("Gui/Controllers/Fxml/MainScene.fxml"));
 		Scene scene = new Scene(gui);
 		
-		stage.setTitle("loggepy");
+		stage.setTitle("loggepy-edition-java");
 		Image icon = new Image("/assets/img/Logo/index.jpg");
 		stage.getIcons().add(icon);
 		stage.setResizable(false);

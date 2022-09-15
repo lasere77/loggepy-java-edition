@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.Random;
 
 import fr.lasere.loggepy.Backup.Repair;
+import fr.lasere.loggepy.Encryption.Deciphers;
 import fr.lasere.loggepy.GetError.SameName;
 import fr.lasere.loggepy.Log.LogWriting;
 
@@ -16,10 +17,10 @@ public class GeneratedPassword {
 	private LogWriting lw = new LogWriting();
 	private Repair repair = new Repair();
 	private SameName sameName = new SameName();
+	private Deciphers Deciphers = new Deciphers();
 	private Random random = new Random();
 	
 	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
-	//private final Path passwordFile = Paths.get("passwords");	
 	
 	private String password;
 	private String fragmentePassword = "";

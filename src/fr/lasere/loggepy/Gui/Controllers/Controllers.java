@@ -84,9 +84,10 @@ public class Controllers {
 	
 	
 	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later)
-		if (deciphers.decipher(IDEntryMainPassword.getText(), IDLabelErrorMainPassword)) {
+		getTrueMainPassword();
+		/*if (deciphers.decipher(IDEntryMainPassword.getText(), IDLabelErrorMainPassword)) {
 			setScene(e, "sceneHome.fxml");
-		}
+		}*/
 	}
 	
 	
@@ -178,7 +179,21 @@ public class Controllers {
 		stage.show();		
 	}
 	
-	public String getIDEntryMainPassword() {
-		return IDEntryMainPassword.getText();
+	public String getTrueMainPassword() {
+		int nb[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		String output = "";
+		for(int i = 0; i != nb.length; i++) {
+			
+		}
+		for(int k = 0; k != IDEntryMainPassword.getText().toCharArray().length; k++) {
+			for(int i = 0; i != nb.length; i++) {
+				System.out.println(IDEntryMainPassword.getText().charAt(k) + " : " + i);
+				if (IDEntryMainPassword.getText().charAt(k) == 0 || IDEntryMainPassword.getText().charAt(k) == 1 || IDEntryMainPassword.getText().charAt(k) == 2 || IDEntryMainPassword.getText().charAt(k) == 3 || IDEntryMainPassword.getText().charAt(k) == 4 || IDEntryMainPassword.getText().charAt(k) == 5 || IDEntryMainPassword.getText().charAt(k) == 6 || IDEntryMainPassword.getText().charAt(k) == 7 || IDEntryMainPassword.getText().charAt(k) == 8 || IDEntryMainPassword.getText().charAt(k) == 9) {
+					output += IDEntryMainPassword.getText().charAt(k);
+				}
+			}
+		}
+		System.out.println(output);
+		return output;
 	}
 }
