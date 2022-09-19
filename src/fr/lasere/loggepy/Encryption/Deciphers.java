@@ -6,24 +6,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import fr.lasere.loggepy.Log.LogWriting;
-import javafx.scene.control.Label;
 
 public class Deciphers {
 	
 	private LogWriting lw = new LogWriting();
-	private int MainPassword;
 	
-	public boolean decipher(String iDEntryMainPassword, Label IDLabelErrorMainPassword) throws IOException {
-		System.out.println(iDEntryMainPassword);
-		lw.WriteLogInfo("master password processing...");
-		try {
-			MainPassword = Integer.parseInt(iDEntryMainPassword);
-			System.out.println(MainPassword);
-		} catch (Exception e) {
-			lw.WriteLogError("the user did not enter something correct...");
-			IDLabelErrorMainPassword.setText("please put only numbers");
-			return false;
-		}
+	public boolean decipher(int MainPassword) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
@@ -38,7 +26,8 @@ public class Deciphers {
 		return true;
 	}
 	
-	private char cesar(int nb, char input) {
+	private char cesar(int nb, char input) throws IOException {
+		lw.WriteLogInfo("decryption processing");
 		char output = ')';
 		while (nb >= 26) {
 			nb -= 25;
@@ -81,7 +70,7 @@ public class Deciphers {
 				}
 			}
 		}
-		//System.out.println(output);
+		System.out.println(output);
 		return output;
 	}
 }

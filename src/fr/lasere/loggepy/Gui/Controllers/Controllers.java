@@ -34,6 +34,7 @@ public class Controllers {
 	private Repair repair = new Repair();
 	private CopyPassword copyPassword = new CopyPassword();
 	private Deciphers deciphers = new Deciphers();
+	private final int MainPasswordError = 159753456;
 	
 	private Stage stage;
 	private Scene scene;
@@ -84,10 +85,12 @@ public class Controllers {
 	
 	
 	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later)
-		getTrueMainPassword();
-		/*if (deciphers.decipher(IDEntryMainPassword.getText(), IDLabelErrorMainPassword)) {
+		if (getTrueMainPassword() != MainPasswordError) {
+			//ajouté un décalage(le mot de passe) a la lecture
+			//attention pas a l'écriture !!!
+			deciphers.decipher(getTrueMainPassword());
 			setScene(e, "sceneHome.fxml");
-		}*/
+		}
 	}
 	
 	
@@ -179,21 +182,17 @@ public class Controllers {
 		stage.show();		
 	}
 	
-	public String getTrueMainPassword() {
-		int nb[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		String output = "";
-		for(int i = 0; i != nb.length; i++) {
-			
+	private int getTrueMainPassword() throws IOException {
+		lw.WriteLogInfo("master password processing...");
+		String MainPassword = IDEntryMainPassword.getText();
+		MainPassword = MainPassword.replaceAll("[^\\d]", " "); 
+		MainPassword = MainPassword.replace(" ", "");
+		try {
+			int realMainPassword = Integer.parseInt(MainPassword);
+	        return realMainPassword; 
+		} catch (Exception e) {
+			lw.WriteLogWarn("the user did not enter a complete password...");
+			return MainPasswordError;
 		}
-		for(int k = 0; k != IDEntryMainPassword.getText().toCharArray().length; k++) {
-			for(int i = 0; i != nb.length; i++) {
-				System.out.println(IDEntryMainPassword.getText().charAt(k) + " : " + i);
-				if (IDEntryMainPassword.getText().charAt(k) == 0 || IDEntryMainPassword.getText().charAt(k) == 1 || IDEntryMainPassword.getText().charAt(k) == 2 || IDEntryMainPassword.getText().charAt(k) == 3 || IDEntryMainPassword.getText().charAt(k) == 4 || IDEntryMainPassword.getText().charAt(k) == 5 || IDEntryMainPassword.getText().charAt(k) == 6 || IDEntryMainPassword.getText().charAt(k) == 7 || IDEntryMainPassword.getText().charAt(k) == 8 || IDEntryMainPassword.getText().charAt(k) == 9) {
-					output += IDEntryMainPassword.getText().charAt(k);
-				}
-			}
-		}
-		System.out.println(output);
-		return output;
 	}
 }
