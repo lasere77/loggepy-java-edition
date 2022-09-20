@@ -35,6 +35,7 @@ public class Controllers {
 	private CopyPassword copyPassword = new CopyPassword();
 	private Deciphers deciphers = new Deciphers();
 	private final int MainPasswordError = 159753456;
+	private int realMainPassword = 000000000;
 	
 	private Stage stage;
 	private Scene scene;
@@ -143,7 +144,7 @@ public class Controllers {
 		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
-		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords());
+		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords(getTrueMainPassword()));
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
@@ -184,11 +185,17 @@ public class Controllers {
 	
 	private int getTrueMainPassword() throws IOException {
 		lw.WriteLogInfo("master password processing...");
-		String MainPassword = IDEntryMainPassword.getText();
+		System.out.println(realMainPassword);
+		//error here
+		if (realMainPassword != 000000000) {
+			System.out.println("il est dans la condition");
+			return realMainPassword;
+		}
+		String MainPassword = IDEntryMainPassword.getText();	
 		MainPassword = MainPassword.replaceAll("[^\\d]", " "); 
 		MainPassword = MainPassword.replace(" ", "");
 		try {
-			int realMainPassword = Integer.parseInt(MainPassword);
+			realMainPassword = Integer.parseInt(MainPassword);
 	        return realMainPassword; 
 		} catch (Exception e) {
 			lw.WriteLogWarn("the user did not enter a complete password...");
