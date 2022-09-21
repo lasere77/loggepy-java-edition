@@ -16,17 +16,14 @@ public class Deciphers {
 		String line = br.readLine();
 		while (line != null) {
 			for(int i = 0; i != line.length(); i++) {
-				System.out.println("origine = " + line.charAt(i));
-				cesar(MainPassword, line.charAt(i));
 			}
-			System.out.println(line);
 			line = br.readLine();
 		}
 		br.close();
 		return true;
 	}
 	
-	private char cesar(int nb, char input) throws IOException {
+	public char cesar(int nb, char input) throws IOException {
 		lw.WriteLogInfo("decryption processing");
 		char output = ')';
 		while (nb >= 26) {
@@ -70,7 +67,6 @@ public class Deciphers {
 				}
 			}
 		}
-		//System.out.println(output);
 		return output;
 	}
 }
