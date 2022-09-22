@@ -31,8 +31,9 @@ public class GeneratedPassword {
 		}else if (sameName.hasSameName(namePassword)) {
 			return "you already have a password with the same name...";
 		}
-		String result = namePassword + "=" + setPassword();
-		String fullPassword = "\n" + namePassword + "=" + setPassword();
+		String setPassword = setPassword();
+		String result = namePassword + "=" + setPassword;
+		String fullPassword = "\n" + "=" + namePassword + "=" + setPassword;
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
 		repair.setBackup();

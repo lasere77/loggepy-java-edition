@@ -17,10 +17,12 @@ import javafx.stage.Stage;
 public class Loggepy extends Application {	
 	
 	private static LogWriting lw = new LogWriting();
-	private static File folderPassword = new File("C:\\loggepy-edition-java\\password\\backup");
-	private static File folderlog = new File("C:\\loggepy-edition-java\\log");
-	private static File logFile = new File("C:\\loggepy-edition-java\\log\\log");
-	private static File passwordFile = new File("C:\\loggepy-edition-java\\password\\backup");
+	private static final File folderPassword = new File("C:\\loggepy-edition-java\\password\\backup");
+	private static final File folderlog = new File("C:\\loggepy-edition-java\\log");
+	private static final File logFile = new File("C:\\loggepy-edition-java\\log\\log");
+	private static final File backupPasswordFile = new File("C:\\loggepy-edition-java\\password\\backup\\backupPassword");
+	private static final File passwordFile = new File("C:\\loggepy-edition-java\\password\\passwords");
+	
 	public static final Path passwordsFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");
 	public static final Path backupPasswordsFile = Paths.get("C:\\loggepy-edition-java\\password\\backup\\backupPassword");
 	
@@ -53,6 +55,9 @@ public class Loggepy extends Application {
 		}
 		if (!logFile.exists()) {
 			logFile.createNewFile();
+		}
+		if (!backupPasswordFile.exists()) {
+			backupPasswordFile.createNewFile();
 		}
 		if (!passwordFile.exists()) {
 			passwordFile.createNewFile();

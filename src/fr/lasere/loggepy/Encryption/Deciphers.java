@@ -1,30 +1,8 @@
 package fr.lasere.loggepy.Encryption;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import fr.lasere.loggepy.Log.LogWriting;
-
 public class Deciphers {
 	
-	private LogWriting lw = new LogWriting();
-	
-	public boolean decipher(int MainPassword) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
-		String line = br.readLine();
-		while (line != null) {
-			for(int i = 0; i != line.length(); i++) {
-			}
-			line = br.readLine();
-		}
-		br.close();
-		return true;
-	}
-	
-	public char cesar(int nb, char input) throws IOException {
-		lw.WriteLogInfo("decryption processing");
+	public char cesar(int nb, char input) {
 		char output = ')';
 		while (nb >= 26) {
 			nb -= 25;

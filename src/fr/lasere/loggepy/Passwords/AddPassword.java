@@ -28,7 +28,7 @@ public class AddPassword {
 		}
 		lw.WriteLogInfo("your password has just been added");
 		String result = namePassword + "=" + password;
-		String fullPassword =  "\n" + namePassword + "=" + password;
+		String fullPassword =  "\n" + "=" + namePassword + "=" + password;
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
 		repair.setBackup();

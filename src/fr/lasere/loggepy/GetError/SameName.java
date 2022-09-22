@@ -17,7 +17,7 @@ public class SameName {
 		Files.write(passwordFile, "".getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
-		namePasswors += "=";
+		namePasswors = "=" + namePasswors + "=";
 		String line = br.readLine();
 		while (line != null) {
 			if(line.contains(namePasswors)) {

@@ -12,7 +12,6 @@ public class DelPassword {
 	
 	private LogWriting lw = new LogWriting();
 	private static final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
-	//private static final Path passwordFile = Paths.get("passwords");	
 	
 	private String fullPassword;
 	private String allPassword = "";
@@ -22,11 +21,12 @@ public class DelPassword {
 		if(namePassword == "" || password == "") {
 			return "please put argument";
 		}
-		fullPassword = namePassword + "=" + password;
+		fullPassword = "=" + namePassword + "=" + password;
 		String result = getDelPassword(fullPassword);
 		Files.write(passwordFile, result.getBytes());
+		result = namePassword + "=" + password;
 		lw.WriteLogInfo("the user has deleted one of its password");
-		return "your password has been deleted: " + fullPassword;
+		return "your password has been deleted: " + result;
 	}
 	
 	private String getDelPassword(String fullPassword) throws IOException {

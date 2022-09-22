@@ -6,7 +6,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import fr.lasere.loggepy.Backup.Repair;
-import fr.lasere.loggepy.Encryption.Deciphers;
 import fr.lasere.loggepy.Log.LogWriting;
 import fr.lasere.loggepy.Passwords.AddPassword;
 import fr.lasere.loggepy.Passwords.CopyPassword;
@@ -33,7 +32,6 @@ public class Controllers {
 	private DelPassword delPassword = new DelPassword();
 	private Repair repair = new Repair();
 	private CopyPassword copyPassword = new CopyPassword();
-	private Deciphers deciphers = new Deciphers();
 	private final int MainPasswordError = 159753456;
 	private static int realMainPassword = 000000000;
 	
@@ -87,9 +85,6 @@ public class Controllers {
 	
 	public void btnLaunch(ActionEvent e) throws IOException { //this button has as its butte of validated or not the main password (which will be set later)
 		if (getTrueMainPassword() != MainPasswordError) {
-			//ajouté un décalage(le mot de passe) a la lecture
-			//attention pas a l'écriture !!!
-			deciphers.decipher(getTrueMainPassword());
 			setScene(e, "sceneHome.fxml");
 		}
 	}

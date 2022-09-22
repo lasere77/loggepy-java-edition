@@ -19,9 +19,9 @@ public class CopyPassword {
 		if (namePasswors == "") {
 			return "please put argument";
 		}
-		namePasswors += "=";
+		namePasswors = "=" + namePasswors + "=";
+		System.out.println(namePasswors);
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
-		//BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("passwords"), "UTF-8"));
 		String line = br.readLine();
 		while (line != null) {
 			if(line.contains(namePasswors)) {
