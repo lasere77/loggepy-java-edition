@@ -30,7 +30,6 @@ public class GetPassword {
 		}
 		br.close();
 		System.out.println(FinalPasswordEncrypt);
-		System.out.println(MainPassword);
 		return allPasswords;
 	}
 }

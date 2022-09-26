@@ -1,6 +1,16 @@
 package fr.lasere.loggepy.Encryption;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Deciphers {
+	
+	private ArrayList<String> RealPasswordName = new ArrayList<String>();
 	
 	public char cesar(int nb, char input) {
 		char output = ')';
@@ -46,5 +56,24 @@ public class Deciphers {
 			}
 		}
 		return output;
+	}
+	
+	public ArrayList<String> getRealPasswordName() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
+		String line = br.readLine();
+		while (line != null) {
+			if (!line.equals("")) {
+			    Pattern p = Pattern.compile("=(.+?)=", Pattern.DOTALL);
+			    Matcher m = p.matcher(line);
+			    m.find();
+			    RealPasswordName.add(m.group(1));
+			} 
+			line = br.readLine();
+		}
+		br.close();
+		for(int i = 0; i != RealPasswordName.size(); i++) {
+			System.out.println(RealPasswordName.get(i));
+		}
+		return RealPasswordName;
 	}
 }
