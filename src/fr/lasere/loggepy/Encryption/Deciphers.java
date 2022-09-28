@@ -57,7 +57,7 @@ public class Deciphers {
 		}
 		return output;
 	}
-	
+		
 	public ArrayList<String> getRealPasswordName() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();

@@ -140,7 +140,7 @@ public class Controllers {
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		System.out.println(realMainPassword);
-		IDLabelConfirmeGetPassword.setText(new GetPassword().GetPasswords(getTrueMainPassword()));
+		IDLabelConfirmeGetPassword.setText(new GetPassword().GetFullPasswords(getTrueMainPassword()));
 	}
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
