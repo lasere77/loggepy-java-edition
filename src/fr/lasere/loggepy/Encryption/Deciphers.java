@@ -4,14 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import fr.lasere.loggepy.Log.LogWriting;
+
 public class Deciphers {
 	
+	private static LogWriting lw = new LogWriting();
+	
 	private boolean isEncrypt = true;
-	private ArrayList<String> RealPasswordName = new ArrayList<String>();
+	private Map<Integer, String> RealPasswordName = new HashMap<Integer, String>();
 	
 	public char cesar(int nb, char input) {
 		char output = ')';
@@ -71,22 +76,43 @@ public class Deciphers {
 		return output;
 	}
 		
-	public ArrayList<String> getRealPasswordName() throws IOException {
+	public Map<Integer, String> getRealPasswordName(Boolean withBeacons) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
-		while (line != null) {
+		for(int i = 0; line != null; i++) {
 			if (!line.equals("")) {
 			    Pattern p = Pattern.compile("=(.+?)=", Pattern.DOTALL);
 			    Matcher m = p.matcher(line);
 			    m.find();
-			    RealPasswordName.add(m.group(1));
+			    if (withBeacons) {
+				    RealPasswordName.put(i, "=" + m.group(1) + "=");
+				}else {
+					RealPasswordName.put(i, m.group(1));
+				}
 			} 
 			line = br.readLine();
 		}
 		br.close();
-		for(int i = 0; i != RealPasswordName.size(); i++) {
-			System.out.println(RealPasswordName.get(i));
-		}
 		return RealPasswordName;
+	}
+	
+	public String getRealPassword() throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
+		String line = br.readLine();
+		String fullPassword = "";
+		Map<Integer, String> namePassword = getRealPasswordName(true);
+		for(int i = 0; line != null; i++) {
+			try {
+				if (!line.equals("")) {
+					line = line.replaceAll(namePassword.get(i), "");
+					fullPassword += line +  "\n";
+				}
+			} catch (Exception e) {
+				lw.WriteLogWarn("line out of reach...");
+			}
+			line = br.readLine();	
+		}
+		br.close();
+		return fullPassword;
 	}
 }
