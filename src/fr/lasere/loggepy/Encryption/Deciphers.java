@@ -17,6 +17,7 @@ public class Deciphers {
 	
 	private boolean isEncrypt = true;
 	private Map<Integer, String> RealPasswordName = new HashMap<Integer, String>();
+	private Map<Integer, String> EncryptPassword = new HashMap<Integer, String>();
 	
 	public char cesar(int nb, char input) {
 		char output = ')';
@@ -30,7 +31,7 @@ public class Deciphers {
 			System.out.println("true");
 			isEncrypt = true;
 		}
-		System.out.println(isEncrypt);
+		//System.out.println(isEncrypt);
 		if (isEncrypt) {
 			for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 				if (input == EncryptionArguments.uppercase[i]) {
@@ -114,5 +115,27 @@ public class Deciphers {
 		}
 		br.close();
 		return fullPassword;
+	}
+	
+	public Map<Integer, String> getEncryptPassword(int MainPassword) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
+		String line = br.readLine();
+		String fullPassword = "";
+		for(int i = 0; line != null; i++) {
+			try {
+				if (!line.equals("")) {
+					for(int k = 0; k != line.length(); k++) {
+						fullPassword += cesar(MainPassword, line.charAt(k));
+					}
+					fullPassword += "\n";
+					EncryptPassword.put(i, fullPassword);
+				}
+			} catch (Exception e) {
+				lw.WriteLogWarn("line out of reach...");
+			}
+			line = br.readLine();	
+		}
+		br.close();
+		return EncryptPassword;
 	}
 }

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
 
 import fr.lasere.loggepy.Encryption.Deciphers;
 import fr.lasere.loggepy.Log.LogWriting;
@@ -18,12 +19,14 @@ public class GetPassword {
 		lw.WriteLogInfo("the user viewed these passwords");
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
+		Map<Integer, String> EncryptPassword = deciphers.getEncryptPassword(MainPassword);
 		lw.WriteLogInfo("decryption processing");
 		while (line != null) {
-			for(int i = 0; i != line.length(); i++) {
-				FinalPasswordEncrypt += deciphers.cesar(MainPassword, line.charAt(i));
+			for(int i = 0; i != EncryptPassword.size() + 1; i++) {
+				if (EncryptPassword.get(i) != null) {
+					FinalPasswordEncrypt = EncryptPassword.get(i).replaceFirst("=", "").replaceAll("\n=", "\n");	
+				}
 			}
-			FinalPasswordEncrypt += "\n";
 			line = br.readLine();
 		}
 		br.close();
