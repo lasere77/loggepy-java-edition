@@ -18,7 +18,7 @@ public class GetPassword {
 		lw.WriteLogInfo("decryption processing");
 		for(int i = 0; i != EncryptPassword.size() + 1; i++) {
 			if (EncryptPassword.get(i) != null) {
-				FinalPasswordEncrypt += EncryptPassword.get(i).replaceFirst("=", "").replaceAll("\n=", "\n");	
+				FinalPasswordEncrypt += EncryptPassword.get(i).replaceFirst("=", "").replace("\n=", "\n").replace("$", "").replace(")", "");	
 			}
 		}
 		return FinalPasswordEncrypt;

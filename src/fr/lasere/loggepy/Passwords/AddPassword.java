@@ -16,9 +16,8 @@ public class AddPassword {
 	private Repair repair = new Repair();
 	private SameName sameName = new SameName();
 	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
-	//private final Path passwordFile = Paths.get("passwords");	
 	
-	public String AddPasswords(String namePassword, String password) throws IOException {
+	public String AddPasswords(String namePassword, String password, int MainPassword) throws IOException {
 		if(namePassword == "" || password == "") {
 			return "please put argument";
 		}else if (namePassword.contains("=") || password.contains("=")) {
@@ -28,7 +27,7 @@ public class AddPassword {
 		}
 		lw.WriteLogInfo("your password has just been added");
 		String result = namePassword + "=" + password;
-		String fullPassword =  "\n" + "=" + namePassword + "=" + password;
+		String fullPassword =  "\n" + "$$" + "=" + namePassword + "=" + "$" + password + "$";
 		Files.write(passwordFile, fullPassword.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND);
 		lw.WriteLogInfo("the password has been saved");
 		repair.setBackup();

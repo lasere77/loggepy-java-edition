@@ -24,9 +24,8 @@ public class CopyPassword {
 		
 		Map<Integer, String> EncryptPassword = deciphers.getEncryptPassword(MainPassword);
 		for(int i = 0; i != EncryptPassword.size() + 1; i++) {
-			System.out.println(EncryptPassword.get(i));
 			if (EncryptPassword.get(i) != null && EncryptPassword.get(i).contains(namePassword)) {
-				passwords = EncryptPassword.get(i).replace(namePassword, "");
+				passwords = EncryptPassword.get(i).replace(namePassword, "").replace("$", "").replace(")", "");
 				StringSelection stringSelection = new StringSelection(passwords);
 				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 				clipboard.setContents(stringSelection, null);

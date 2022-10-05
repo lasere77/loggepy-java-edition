@@ -136,7 +136,7 @@ public class Controllers {
 	
 	public void btnConfirmeGeneratPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryGeneratedPassword.getText();
-		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword));
+		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword, getTrueMainPassword()));
 	}
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetFullPasswords(getTrueMainPassword()));
@@ -144,7 +144,7 @@ public class Controllers {
 	public void btnConfirmeAddPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryAddPasswordNamePassword.getText();
 		password = IDEntryAddPasswordPassword.getText();
-		IDLabelConfirmeAddPassword.setText(addPassword.AddPasswords(namePassword, password));
+		IDLabelConfirmeAddPassword.setText(addPassword.AddPasswords(namePassword, password, getTrueMainPassword()));
 	}
 	public void btnConfirmeCopy(ActionEvent e) throws IOException {
 		namePassword = IDEntryCopy.getText();

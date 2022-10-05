@@ -24,13 +24,12 @@ public class Deciphers {
 		while (nb >= 26) {
 			nb -= 25;
 		}
-		if (input == '=' && isEncrypt) {
-			System.out.println("false");
+		if ((input == '$' || input == '=') && isEncrypt) {
 			isEncrypt = false;
-		}else if (input == '=' && !isEncrypt) {
-			System.out.println("true");
+		}else if ((input == '$' || input == '=') && !isEncrypt) {
 			isEncrypt = true;
 		}
+		System.out.println(isEncrypt);
 		if (isEncrypt) {
 			for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 				if (input == EncryptionArguments.uppercase[i]) {
