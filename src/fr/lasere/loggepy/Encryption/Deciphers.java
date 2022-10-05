@@ -31,7 +31,6 @@ public class Deciphers {
 			System.out.println("true");
 			isEncrypt = true;
 		}
-		//System.out.println(isEncrypt);
 		if (isEncrypt) {
 			for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 				if (input == EncryptionArguments.uppercase[i]) {
@@ -129,6 +128,7 @@ public class Deciphers {
 					}
 					fullPassword += "\n";
 					EncryptPassword.put(i, fullPassword);
+					fullPassword = "";
 				}
 			} catch (Exception e) {
 				lw.WriteLogWarn("line out of reach...");

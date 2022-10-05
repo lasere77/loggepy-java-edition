@@ -3,36 +3,38 @@ package fr.lasere.loggepy.Passwords;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Map;
 
+import fr.lasere.loggepy.Encryption.Deciphers;
 import fr.lasere.loggepy.Log.LogWriting;
 
 public class CopyPassword {
 	
 	private static LogWriting lw = new LogWriting();
-	private String passwords = "";
+	private Deciphers deciphers = new Deciphers();
 	
-	public String CopyPasswords(String namePasswors) throws IOException {
-		if (namePasswors == "") {
+	public String CopyPasswords(String namePassword, int MainPassword) throws IOException {
+		String passwords = "";
+		if (namePassword == "") {
 			return "please put argument";
 		}
-		namePasswors = "=" + namePasswors + "=";
-		System.out.println(namePasswors);
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
-		String line = br.readLine();
-		while (line != null) {
-			if(line.contains(namePasswors)) {
-				passwords = line.replace(namePasswors, "");
+		namePassword = "=" + namePassword + "=";
+		
+		
+		Map<Integer, String> EncryptPassword = deciphers.getEncryptPassword(MainPassword);
+		for(int i = 0; i != EncryptPassword.size() + 1; i++) {
+			System.out.println(EncryptPassword.get(i));
+			if (EncryptPassword.get(i) != null && EncryptPassword.get(i).contains(namePassword)) {
+				passwords = EncryptPassword.get(i).replace(namePassword, "");
 				StringSelection stringSelection = new StringSelection(passwords);
 				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 				clipboard.setContents(stringSelection, null);
 			}
-			line = br.readLine();
 		}
-		br.close();
+		if (passwords == "") {
+			return "sorry but this password is not negist...";
+		}
 		lw.WriteLogInfo("the user has a copy of their password");
 		return "your password has been copied: " + passwords;
 	}
