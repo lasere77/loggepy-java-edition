@@ -19,6 +19,7 @@ public class Deciphers {
 	private Map<Integer, String> RealPasswordName = new HashMap<Integer, String>();
 	private Map<Integer, String> EncryptPassword = new HashMap<Integer, String>();
 	
+	
 	public char cesar(int nb, char input) {
 		char output = ')';
 		while (nb >= 26) {
@@ -34,13 +35,13 @@ public class Deciphers {
 			for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 				if (input == EncryptionArguments.uppercase[i]) {
 					try {
-						output = EncryptionArguments.uppercase[i + nb];
+						output = EncryptionArguments.uppercase[(i + nb) % 26];
 					} catch (Exception e) {
 						output = EncryptionArguments.uppercase[nb];
 					}
 				}else if (input == EncryptionArguments.lowercase[i]) {
 					try {
-						output = EncryptionArguments.lowercase[i + nb];
+						output = EncryptionArguments.lowercase[(i + nb) % 26];
 					} catch (Exception e) {
 						output = EncryptionArguments.lowercase[nb];
 					}
@@ -52,7 +53,7 @@ public class Deciphers {
 			for(int i = 0; i != 10; i++) {
 				if (input == EncryptionArguments.nb[i]) {
 					try {
-						output = (char) EncryptionArguments.nb[i + nb];
+						output = (char) EncryptionArguments.nb[(i + nb) % 26];
 					} catch (Exception e) {
 						output = (char) EncryptionArguments.nb[i];
 					}
@@ -63,7 +64,7 @@ public class Deciphers {
 					output = '=';
 				}else if (input == EncryptionArguments.specialCharacter[i]) {
 					try {
-						output = EncryptionArguments.specialCharacter[i + nb];
+						output = EncryptionArguments.specialCharacter[(i + nb) % 26];
 					} catch (Exception e) {
 						output = EncryptionArguments.specialCharacter[i];
 					}
@@ -74,7 +75,7 @@ public class Deciphers {
 		}
 		return output;
 	}
-		
+	
 	public Map<Integer, String> getRealPasswordName(Boolean withBeacons) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\loggepy-edition-java\\password\\passwords"), "UTF-8"));
 		String line = br.readLine();
