@@ -20,7 +20,7 @@ public class Deciphers {
 	private Map<Integer, String> EncryptPassword = new HashMap<Integer, String>();
 	
 	
-	public char cesar(int nb, char input) {
+	public char cesar(int nb, char input, boolean isReverse) {
 		char output = ')';
 		while (nb >= 26) {
 			nb -= 25;
@@ -30,18 +30,25 @@ public class Deciphers {
 		}else if ((input == '$' || input == '=') && !isEncrypt) {
 			isEncrypt = true;
 		}
-		System.out.println(isEncrypt);
 		if (isEncrypt) {
 			for(int i = 0; i != EncryptionArguments.lengthUppercase; i++) {
 				if (input == EncryptionArguments.uppercase[i]) {
 					try {
-						output = EncryptionArguments.uppercase[(i + nb) % 26];
+						if (isReverse) {
+							output = EncryptionArguments.uppercase[(i - nb) % 26];
+						}else {
+							output = EncryptionArguments.uppercase[(i + nb) % 26];
+						}
 					} catch (Exception e) {
 						output = EncryptionArguments.uppercase[nb];
 					}
 				}else if (input == EncryptionArguments.lowercase[i]) {
 					try {
-						output = EncryptionArguments.lowercase[(i + nb) % 26];
+						if (isReverse) {
+							output = EncryptionArguments.lowercase[(i - nb) % 26];
+						}else {
+							output = EncryptionArguments.lowercase[(i + nb) % 26];
+						}
 					} catch (Exception e) {
 						output = EncryptionArguments.lowercase[nb];
 					}
@@ -53,7 +60,11 @@ public class Deciphers {
 			for(int i = 0; i != 10; i++) {
 				if (input == EncryptionArguments.nb[i]) {
 					try {
-						output = (char) EncryptionArguments.nb[(i + nb) % 26];
+						if (isReverse) {
+							output = (char) EncryptionArguments.nb[(i - nb) % 26];
+						}else {
+							output = (char) EncryptionArguments.nb[(i + nb) % 26];
+						}
 					} catch (Exception e) {
 						output = (char) EncryptionArguments.nb[i];
 					}
@@ -64,7 +75,11 @@ public class Deciphers {
 					output = '=';
 				}else if (input == EncryptionArguments.specialCharacter[i]) {
 					try {
-						output = EncryptionArguments.specialCharacter[(i + nb) % 26];
+						if (isReverse) {
+							output = EncryptionArguments.specialCharacter[(i - nb) % 26];
+						}else {
+							output = EncryptionArguments.specialCharacter[(i + nb) % 26];
+						}
 					} catch (Exception e) {
 						output = EncryptionArguments.specialCharacter[i];
 					}
@@ -124,7 +139,7 @@ public class Deciphers {
 			try {
 				if (!line.equals("")) {
 					for(int k = 0; k != line.length(); k++) {
-						fullPassword += cesar(MainPassword, line.charAt(k));
+						fullPassword += cesar(MainPassword, line.charAt(k), false);
 					}
 					fullPassword += "\n";
 					EncryptPassword.put(i, fullPassword);

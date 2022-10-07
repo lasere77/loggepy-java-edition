@@ -36,7 +36,7 @@ public class GeneratedPassword {
 		String setPassword = setPassword();
 		String EncryptPassword = "";
 		for(int i = 0; i != setPassword.length(); i++) {
-			EncryptPassword += deciphers.cesar(MainPassword, setPassword.charAt(i));
+			EncryptPassword += deciphers.cesar(MainPassword, setPassword.charAt(i), false);
 		}
 		String result = namePassword + "=" + EncryptPassword;
 		String fullPassword = "\n" + "=" + namePassword + "=" + setPassword;

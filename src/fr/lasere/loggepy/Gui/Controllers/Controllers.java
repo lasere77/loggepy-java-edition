@@ -162,7 +162,7 @@ public class Controllers {
 	public void btnConfirmeDelPassword(ActionEvent e) throws IOException {
 		namePassword = IDEntryDelPasswordNamePassword.getText();
 		password = IDEntryDelPassword.getText();
-		IDLabelConfirmeDelPassword.setText(delPassword.delPassword(namePassword, password));
+		IDLabelConfirmeDelPassword.setText(delPassword.delPassword(namePassword, password, getTrueMainPassword()));
 	}
 	public void btnConfirmeUpdate(ActionEvent e) throws IOException, InterruptedException {
 		IDLabelConfirmeUpdate.setText("please wait...");
