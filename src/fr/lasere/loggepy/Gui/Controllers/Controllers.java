@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -54,6 +55,11 @@ public class Controllers {
 	private TextField IDEntryGeneratedPassword;
 	@FXML 
 	private Label IDLabelConfirme;
+	//password Argument
+	@FXML
+	private CheckBox IDSpecialCharacters, IDContainsNumbers, IDContainsCapitalLetters, IDContainsLowercaseLetters;
+	@FXML
+	private TextField IDEntryPasswordLength;
 	//get password
 	@FXML 
 	private Label IDLabelConfirmeGetPassword;
@@ -93,6 +99,9 @@ public class Controllers {
 	public void btnGeneratedPassword(ActionEvent e) throws IOException {
 		lw.WriteLogInfo("user was in the section: /Generated Password");
 		setScene(e, "sceneGeneratedPassword.fxml");
+	}
+	public void btnPasswordAruments(ActionEvent e) throws IOException {
+		setScene(e, "scenePasswordArguments.fxml");
 	}
 	public void btnGetPassword(ActionEvent e) throws IOException {
 		lw.WriteLogInfo("user was in the section: /Get Password");
@@ -138,6 +147,43 @@ public class Controllers {
 		namePassword = IDEntryGeneratedPassword.getText();
 		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword, getTrueMainPassword()));
 	}
+	public void btnBackGeneratPassword(ActionEvent e) throws IOException {
+		setScene(e, "sceneGeneratedPassword.fxml");
+	}
+	public void btnConfirmePasswordArguments(ActionEvent e) {
+		System.out.println("comfirm");
+	}
+	
+	public void SpecialCharacters(ActionEvent e) {
+		if (IDSpecialCharacters.isSelected()) {
+			System.out.println("test");
+		}else {
+			System.out.println("no");
+		}
+	}
+	public void ContainsNumbers(ActionEvent e) {
+		if (IDContainsNumbers.isSelected()) {
+			System.out.println("test");
+		}else {
+			System.out.println("no");
+		}
+	}
+	public void ContainsCapitalLetters(ActionEvent e) {
+		if (IDContainsCapitalLetters.isSelected()) {
+			System.out.println("test");
+		}else {
+			System.out.println("no");
+		}
+	}
+	public void ContainsLowercaseLetters(ActionEvent e) {
+		if (IDContainsLowercaseLetters.isSelected()) {
+			System.out.println("test");
+		}else {
+			System.out.println("no");
+		}
+	}
+	
+	
 	public void btnConfirmeGetPassword(ActionEvent e) throws IOException {
 		IDLabelConfirmeGetPassword.setText(new GetPassword().GetFullPasswords(getTrueMainPassword()));
 	}
