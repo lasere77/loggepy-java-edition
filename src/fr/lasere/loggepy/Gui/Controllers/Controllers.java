@@ -35,6 +35,9 @@ public class Controllers {
 	private CopyPassword copyPassword = new CopyPassword();
 	private final int MainPasswordError = 159753456;
 	private static int realMainPassword = 000000000;
+	public static boolean SpecialCharacters, ContainsNumbers, ContainsCapitalLetters, ContainsLowercaseLetters = true;
+	public static int nbCharPassword = 24;
+	
 	
 	private Stage stage;
 	private Scene scene;
@@ -147,39 +150,55 @@ public class Controllers {
 		namePassword = IDEntryGeneratedPassword.getText();
 		IDLabelConfirme.setText(generatedPassword.GeneratedPasswords(namePassword, getTrueMainPassword()));
 	}
+	
+	
 	public void btnBackGeneratPassword(ActionEvent e) throws IOException {
 		setScene(e, "sceneGeneratedPassword.fxml");
 	}
 	public void btnConfirmePasswordArguments(ActionEvent e) {
 		System.out.println("comfirm");
+		String GetNbCharPassword = IDEntryPasswordLength.getText();
+		GetNbCharPassword = GetNbCharPassword.replaceAll("[^\\d]", " "); 
+		GetNbCharPassword = GetNbCharPassword.replace(" ", "");
+		if (!(GetNbCharPassword == "")) {
+			int NbCharPassword = Integer.parseInt(GetNbCharPassword);
+			if (NbCharPassword > 26) {
+				NbCharPassword = 26;
+			}
+			if (NbCharPassword <= 1) {
+				NbCharPassword = 2; 
+			}
+			nbCharPassword = NbCharPassword;
+		}
 	}
 	
+
 	public void SpecialCharacters(ActionEvent e) {
 		if (IDSpecialCharacters.isSelected()) {
-			System.out.println("test");
+			SpecialCharacters = true;
 		}else {
-			System.out.println("no");
+			SpecialCharacters = false;
 		}
 	}
 	public void ContainsNumbers(ActionEvent e) {
 		if (IDContainsNumbers.isSelected()) {
-			System.out.println("test");
+			ContainsNumbers = true;
 		}else {
-			System.out.println("no");
+			ContainsNumbers = false;
 		}
 	}
 	public void ContainsCapitalLetters(ActionEvent e) {
 		if (IDContainsCapitalLetters.isSelected()) {
-			System.out.println("test");
+			ContainsCapitalLetters = true;
 		}else {
-			System.out.println("no");
+			ContainsCapitalLetters = false;
 		}
 	}
 	public void ContainsLowercaseLetters(ActionEvent e) {
 		if (IDContainsLowercaseLetters.isSelected()) {
-			System.out.println("test");
+			ContainsLowercaseLetters = true;
 		}else {
-			System.out.println("no");
+			ContainsLowercaseLetters = false;
 		}
 	}
 	
