@@ -13,6 +13,10 @@ import fr.lasere.loggepy.GetError.SameName;
 import fr.lasere.loggepy.Gui.Controllers.Controllers;
 import fr.lasere.loggepy.Log.LogWriting;
 
+/*
+ *this class has not yet been adapted to passwordArguments
+ */
+
 public class GeneratedPassword {
 	
 	private LogWriting lw = new LogWriting();
@@ -20,6 +24,7 @@ public class GeneratedPassword {
 	private SameName sameName = new SameName();
 	private Deciphers deciphers = new Deciphers();
 	private Random random = new Random();
+	private int nbRand;
 	
 	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
 	
@@ -50,23 +55,45 @@ public class GeneratedPassword {
 	
 	private String setPassword() throws IOException {
 		fragmentePassword = "";
-		for(int i = 0; i <= Controllers.nbCharPassword; i++) {
-			if (Controllers.SpecialCharacters) {
+		System.out.println("\n");
+		System.out.println(Controllers.nbCharPassword);
+		System.out.println("maj: " + Controllers.ContainsCapitalLetters);
+		System.out.println("minuscule: " + Controllers.ContainsLowercaseLetters);
+		System.out.println("nb: " + Controllers.ContainsNumbers);
+		System.out.println("spécial: " + Controllers.SpecialCharacters);
+		if (Controllers.ContainsCapitalLetters) {
+			nbRand++;
+		}
+		if (Controllers.ContainsLowercaseLetters) {
+			nbRand++;
+		}
+		if (Controllers.ContainsNumbers) {
+			nbRand++;
+		}
+		if (Controllers.SpecialCharacters) {
+			nbRand++;
+		}
+		System.out.println("nbRand: " + nbRand);
+		for(int i = 0; i <= Controllers.nbCharPassword - 1; i++) {
+			int rand = random.nextInt(nbRand);
+			System.out.println(rand);
+			if (Controllers.SpecialCharacters && rand == 0) {
 				fragmentePassword += PasswordArguments.specialCharacter[random.nextInt(PasswordArguments.specialCharacter.length)];
-			}
-			if (Controllers.ContainsNumbers) {
+			}else if (Controllers.ContainsNumbers && rand == 1) {
 				fragmentePassword += PasswordArguments.nb[random.nextInt(PasswordArguments.nb.length)];
-			}
-			if (Controllers.ContainsCapitalLetters) {
+			}else if (Controllers.ContainsCapitalLetters && rand == 2) {
 				fragmentePassword += PasswordArguments.uppercase[random.nextInt(PasswordArguments.uppercase.length)];
-			}
-			if (Controllers.ContainsLowercaseLetters) {
+			}else if (Controllers.ContainsLowercaseLetters && rand == 3) {
 				fragmentePassword += PasswordArguments.lowercase[random.nextInt(PasswordArguments.lowercase.length)];
 			}
 		}
-		Controllers.nbCharPassword = 24;
 		password = fragmentePassword;
 		lw.WriteLogInfo("the password has just been created");
+		Controllers.nbCharPassword = 24;
+		Controllers.ContainsCapitalLetters = true;
+		Controllers.ContainsLowercaseLetters = true;
+		Controllers.ContainsNumbers = true;
+		Controllers.SpecialCharacters = true;
 		return password;
 	}
 }

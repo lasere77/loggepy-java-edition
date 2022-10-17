@@ -35,7 +35,10 @@ public class Controllers {
 	private CopyPassword copyPassword = new CopyPassword();
 	private final int MainPasswordError = 159753456;
 	private static int realMainPassword = 000000000;
-	public static boolean SpecialCharacters, ContainsNumbers, ContainsCapitalLetters, ContainsLowercaseLetters = true;
+	public static boolean ContainsLowercaseLetters = true;
+	public static boolean ContainsCapitalLetters = true;
+	public static boolean SpecialCharacters = true;
+	public static boolean ContainsNumbers = true;
 	public static int nbCharPassword = 24;
 	
 	
@@ -104,6 +107,10 @@ public class Controllers {
 		setScene(e, "sceneGeneratedPassword.fxml");
 	}
 	public void btnPasswordAruments(ActionEvent e) throws IOException {
+		SpecialCharacters = false;
+		ContainsNumbers = false;
+		ContainsCapitalLetters = false;
+		ContainsLowercaseLetters = false;
 		setScene(e, "scenePasswordArguments.fxml");
 	}
 	public void btnGetPassword(ActionEvent e) throws IOException {
@@ -153,10 +160,13 @@ public class Controllers {
 	
 	
 	public void btnBackGeneratPassword(ActionEvent e) throws IOException {
+		SpecialCharacters = true;
+		ContainsNumbers = true;
+		ContainsCapitalLetters = true;
+		ContainsLowercaseLetters = true;
 		setScene(e, "sceneGeneratedPassword.fxml");
 	}
-	public void btnConfirmePasswordArguments(ActionEvent e) {
-		System.out.println("comfirm");
+	public void btnConfirmePasswordArguments(ActionEvent e) throws IOException {
 		String GetNbCharPassword = IDEntryPasswordLength.getText();
 		GetNbCharPassword = GetNbCharPassword.replaceAll("[^\\d]", " "); 
 		GetNbCharPassword = GetNbCharPassword.replace(" ", "");
@@ -170,35 +180,43 @@ public class Controllers {
 			}
 			nbCharPassword = NbCharPassword;
 		}
+		setScene(e, "sceneGeneratedPassword.fxml");
 	}
 	
-
 	public void SpecialCharacters(ActionEvent e) {
 		if (IDSpecialCharacters.isSelected()) {
 			SpecialCharacters = true;
+			System.out.println("la valleur est vrais");
 		}else {
-			SpecialCharacters = false;
+			SpecialCharacters = false;			
+			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsNumbers(ActionEvent e) {
 		if (IDContainsNumbers.isSelected()) {
 			ContainsNumbers = true;
+			System.out.println("la valleur est vrais");
 		}else {
 			ContainsNumbers = false;
+			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsCapitalLetters(ActionEvent e) {
 		if (IDContainsCapitalLetters.isSelected()) {
 			ContainsCapitalLetters = true;
+			System.out.println("la valleur est vrais");
 		}else {
 			ContainsCapitalLetters = false;
+			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsLowercaseLetters(ActionEvent e) {
 		if (IDContainsLowercaseLetters.isSelected()) {
 			ContainsLowercaseLetters = true;
+			System.out.println("la valleur est vrais");
 		}else {
 			ContainsLowercaseLetters = false;
+			System.out.println("la valleur est fause");
 		}
 	}
 	
