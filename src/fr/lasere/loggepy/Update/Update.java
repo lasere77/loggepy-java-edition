@@ -18,9 +18,9 @@ public class Update {
 	
 	private LogWriting lw = new LogWriting();
 
-	private final int MAJOR = 1;
-	private final int MINOR = 0;
-	private final int PATCH = 0;
+	private final int MAJOR = 2;
+	private final int MINOR = 1;
+	private final int PATCH = 1;
 	private int getMajor;
 	private int getMinor;
 	private int getPatch;
