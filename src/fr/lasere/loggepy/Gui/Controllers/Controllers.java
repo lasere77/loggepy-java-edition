@@ -160,10 +160,7 @@ public class Controllers {
 	
 	
 	public void btnBackGeneratPassword(ActionEvent e) throws IOException {
-		SpecialCharacters = true;
-		ContainsNumbers = true;
-		ContainsCapitalLetters = true;
-		ContainsLowercaseLetters = true;
+		resetPasswordArguments();
 		setScene(e, "sceneGeneratedPassword.fxml");
 	}
 	public void btnConfirmePasswordArguments(ActionEvent e) throws IOException {
@@ -186,37 +183,29 @@ public class Controllers {
 	public void SpecialCharacters(ActionEvent e) {
 		if (IDSpecialCharacters.isSelected()) {
 			SpecialCharacters = true;
-			System.out.println("la valleur est vrais");
 		}else {
 			SpecialCharacters = false;			
-			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsNumbers(ActionEvent e) {
 		if (IDContainsNumbers.isSelected()) {
 			ContainsNumbers = true;
-			System.out.println("la valleur est vrais");
 		}else {
 			ContainsNumbers = false;
-			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsCapitalLetters(ActionEvent e) {
 		if (IDContainsCapitalLetters.isSelected()) {
 			ContainsCapitalLetters = true;
-			System.out.println("la valleur est vrais");
 		}else {
 			ContainsCapitalLetters = false;
-			System.out.println("la valleur est fause");
 		}
 	}
 	public void ContainsLowercaseLetters(ActionEvent e) {
 		if (IDContainsLowercaseLetters.isSelected()) {
 			ContainsLowercaseLetters = true;
-			System.out.println("la valleur est vrais");
 		}else {
 			ContainsLowercaseLetters = false;
-			System.out.println("la valleur est fause");
 		}
 	}
 	
@@ -280,5 +269,12 @@ public class Controllers {
 			lw.WriteLogWarn("the user did not enter a complete password...");
 			return MainPasswordError;
 		}
+	}
+	
+	private void resetPasswordArguments() {
+		SpecialCharacters = true;
+		ContainsNumbers = true;
+		ContainsCapitalLetters = true;
+		ContainsLowercaseLetters = true;
 	}
 }

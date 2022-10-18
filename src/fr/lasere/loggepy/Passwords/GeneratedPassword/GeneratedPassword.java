@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Random;
 
 import fr.lasere.loggepy.Backup.Repair;
@@ -13,9 +14,6 @@ import fr.lasere.loggepy.GetError.SameName;
 import fr.lasere.loggepy.Gui.Controllers.Controllers;
 import fr.lasere.loggepy.Log.LogWriting;
 
-/*
- *this class has not yet been adapted to passwordArguments
- */
 
 public class GeneratedPassword {
 	
@@ -24,13 +22,13 @@ public class GeneratedPassword {
 	private SameName sameName = new SameName();
 	private Deciphers deciphers = new Deciphers();
 	private Random random = new Random();
-	private int nbRand;
 	
 	private final Path passwordFile = Paths.get("C:\\loggepy-edition-java\\password\\passwords");	
+	private ArrayList<Object> generationArgument = new ArrayList<>();
 	
 	private String password;
 	private String fragmentePassword = "";
-	
+
 	
 	public String GeneratedPasswords(String namePassword, int MainPassword) throws IOException {
 		if(namePassword == "") {
@@ -55,45 +53,42 @@ public class GeneratedPassword {
 	
 	private String setPassword() throws IOException {
 		fragmentePassword = "";
-		System.out.println("\n");
-		System.out.println(Controllers.nbCharPassword);
-		System.out.println("maj: " + Controllers.ContainsCapitalLetters);
-		System.out.println("minuscule: " + Controllers.ContainsLowercaseLetters);
-		System.out.println("nb: " + Controllers.ContainsNumbers);
-		System.out.println("spécial: " + Controllers.SpecialCharacters);
 		if (Controllers.ContainsCapitalLetters) {
-			nbRand++;
+			generationArgument.add(PasswordArguments.uppercase);
 		}
 		if (Controllers.ContainsLowercaseLetters) {
-			nbRand++;
+			generationArgument.add(PasswordArguments.lowercase);
 		}
 		if (Controllers.ContainsNumbers) {
-			nbRand++;
+			generationArgument.add(PasswordArguments.nb);
 		}
 		if (Controllers.SpecialCharacters) {
-			nbRand++;
+			generationArgument.add(PasswordArguments.specialCharacter);
 		}
-		System.out.println("nbRand: " + nbRand);
 		for(int i = 0; i <= Controllers.nbCharPassword - 1; i++) {
-			int rand = random.nextInt(nbRand);
-			System.out.println(rand);
-			if (Controllers.SpecialCharacters && rand == 0) {
+			int rand = random.nextInt(generationArgument.size());
+			Object randomGenerationArgument = generationArgument.get(rand);
+			if (randomGenerationArgument == PasswordArguments.specialCharacter) {
 				fragmentePassword += PasswordArguments.specialCharacter[random.nextInt(PasswordArguments.specialCharacter.length)];
-			}else if (Controllers.ContainsNumbers && rand == 1) {
+			}else if (randomGenerationArgument == PasswordArguments.nb) {
 				fragmentePassword += PasswordArguments.nb[random.nextInt(PasswordArguments.nb.length)];
-			}else if (Controllers.ContainsCapitalLetters && rand == 2) {
+			}else if (randomGenerationArgument == PasswordArguments.uppercase) {
 				fragmentePassword += PasswordArguments.uppercase[random.nextInt(PasswordArguments.uppercase.length)];
-			}else if (Controllers.ContainsLowercaseLetters && rand == 3) {
+			}else if (randomGenerationArgument == PasswordArguments.lowercase) {
 				fragmentePassword += PasswordArguments.lowercase[random.nextInt(PasswordArguments.lowercase.length)];
 			}
 		}
 		password = fragmentePassword;
 		lw.WriteLogInfo("the password has just been created");
+		setDefaultValues();
+		return password;
+	}
+	
+	private void setDefaultValues() {
 		Controllers.nbCharPassword = 24;
 		Controllers.ContainsCapitalLetters = true;
 		Controllers.ContainsLowercaseLetters = true;
 		Controllers.ContainsNumbers = true;
 		Controllers.SpecialCharacters = true;
-		return password;
 	}
 }
