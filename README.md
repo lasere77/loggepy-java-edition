@@ -31,7 +31,7 @@ And for the proper functioning of the java program (18.0.2 jdk) plus javafx sdk 
 All it's stoker sound file in the same place in "C:\Program Files (x86)\loggepy-edition-java".
 
 ## update
-in the future update (1.1.1) the file encryption system containing the passwords will be implemented, so you will have to enter your password to be able to access loggepy.
+in the future update (2.1.1) the file encryption system containing the passwords will be implemented, so you will have to enter your password to be able to access loggepy.
 more corrective on the error same name
 ---
 
